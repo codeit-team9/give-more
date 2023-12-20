@@ -1,14 +1,55 @@
 body:
   - type: textarea
     attributes:
-      label: 회의 내용
-      placeholder: 회의 내용을 적어주세요.
+      label: 남궁수
+      value: |
+        * 어제 한 일
+        * 오늘 할 일
+        * 일에 방해되는 것
+        ...
     validations:
       required: true
 
   - type: textarea
     attributes:
-      label: 오늘 할일
-      placeholder: 오늘 해야할 일을 작성합니다.
+      label: 박세은
+      value: |
+        * 어제 한 일
+        * 오늘 할 일
+        * 일에 방해되는 것
+        ...
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: 손상희
+      value: |
+        * 어제 한 일
+        * 오늘 할 일
+        * 일에 방해되는 것
+        ...
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: 이정윤
+      value: |
+        * 어제 한 일
+        * 오늘 할 일
+        * 일에 방해되는 것
+        ...
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: 임석준
+      value: |
+        * 어제 한 일
+        * 오늘 할 일
+        * 일에 방해되는 것
+        ...
     validations:
       required: true
