@@ -3,7 +3,6 @@
   padding: 0;
   color: inherit;
   font: inherit;
-  box-sizing: border-box;
 }
 
 *,
@@ -27,7 +26,6 @@
 html,
 body {
   height: 100%;
-  font-size: 62.5%;
 }
 
 img,
@@ -49,9 +47,11 @@ a {
   text-decoration: none;
 }
 
-ul,
+dl,
+li,
+menu,
 ol,
-li {
+ul {
   list-style: none;
 }
 
