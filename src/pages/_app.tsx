@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import '@/styles/reset.css'
 import '@/styles/font.css'
 import type { AppProps } from 'next/app'
