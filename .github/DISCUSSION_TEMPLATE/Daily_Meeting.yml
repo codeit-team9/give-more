@@ -1,0 +1,14 @@
+body:
+  - type: textarea
+    attributes:
+      label: 회의 내용
+      placeholder: 회의 내용을 적어주세요.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: 오늘 할일
+      placeholder: 오늘 해야할 일을 작성합니다.
+    validations:
+      required: true
