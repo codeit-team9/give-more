@@ -1,0 +1,21 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    font-size: 1rem;
+
+}
+
+.input {
+    width: 350px;
+    padding: 16px 20px;
+
+    border-radius: 6px;
+    border: 1px solid var(--gray-30);
+}
+
+.text {
+    font-size: 0.75rem;
+    color: var(--red-40);
+}
