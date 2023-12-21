@@ -50,7 +50,7 @@ function SearchBar({ size }: Props) {
   return (
     <div style={wrapperStyles} className={styles.wrapper}>
       <SearchIcon style={{ width: `${Device[size].iconSize}rem` }} />
-      <p style={{ fontSize: `${Device[size].fontSize}rem` }}>가게 이름으로 찾아보세요</p>
+      <p>가게 이름으로 찾아보세요</p>
     </div>
   );
 }
