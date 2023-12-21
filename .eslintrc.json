@@ -26,11 +26,11 @@
     "react/jsx-filename-extension": ["warn", { "extensions": [".ts", ".tsx"] }],
     "react/jsx-props-no-spreading": "off",
     "no-useless-catch": "off",
-    "prettier/prettier": [
-      "error",
-      {
-        "endOfLine": "lf"
-      }
-    ]
+    "no-console": "warn",
+    "react/require-default-props": "off",
+    "import/extensions": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/prefer-default-export": "off"
   }
 }
