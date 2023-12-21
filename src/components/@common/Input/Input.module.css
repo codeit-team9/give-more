@@ -1,21 +1,23 @@
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 
-    font-size: 1rem;
-
+  font-size: 1rem;
 }
 
 .input {
-    width: 350px;
-    padding: 16px 20px;
+  width: 350px;
+  padding: 16px 20px;
 
-    border-radius: 6px;
-    border: 1px solid var(--gray-30);
+  border-radius: 6px;
+  border: 1px solid var(--gray-30);
 }
+/* .input:focus {
+  outline: 1px solid var(--red-40);
+} */
 
 .errorMsg {
-    font-size: 0.75rem;
-    color: var(--red-40);
+  font-size: 0.75rem;
+  color: var(--red-40);
 }
