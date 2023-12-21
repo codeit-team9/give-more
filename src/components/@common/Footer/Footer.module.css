@@ -37,7 +37,7 @@
 }
 
 /* tablet */
-@media (min-width: 767px) {
+@media (min-width: 768px) {
   .wrapper {
     display: flex;
     align-items: center;
@@ -50,7 +50,7 @@
 }
 
 /* desktop */
-@media (min-width: 1199px) {
+@media (min-width: 1200px) {
   .wrapper {
     padding: 2.3125rem 14.875rem;
   }
