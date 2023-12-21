@@ -1,3 +1,4 @@
+import averageWage from '@/utils/averageWage';
 import WagebadgeUI from './WageBadgeUI';
 
 interface Props {
@@ -7,8 +8,6 @@ interface Props {
 }
 
 function Wagebadge({ defaultWage, currentWage, isClosed }: Props) {
-  const averageWage = Math.trunc(((currentWage - defaultWage) / defaultWage) * 10) * 10;
-
   const determineArrowDirection = () => {
     if (defaultWage <= currentWage) {
       return '↑';
@@ -16,7 +15,13 @@ function Wagebadge({ defaultWage, currentWage, isClosed }: Props) {
     return '↓';
   };
 
-  return <WagebadgeUI averageWage={averageWage} cursor={determineArrowDirection()} isClosed={isClosed} />;
+  return (
+    <WagebadgeUI
+      averageWage={averageWage({ defaultWage, currentWage })}
+      arrow={determineArrowDirection()}
+      isClosed={isClosed}
+    />
+  );
 }
 
 export default Wagebadge;

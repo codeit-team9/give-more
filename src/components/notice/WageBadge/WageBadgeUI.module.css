@@ -1,41 +1,37 @@
 .wrapper {
-  font-size: 12px;
+  font-size: 1.2rem;
   font-weight: 400;
 
-  /* Tablet */
-  @media (min-width: 767px) {
+  @media (min-width: 768px) {
     display: inline-flex;
     align-items: center;
-    padding: 12px;
-    height: 36px;
-    font-size: 14px;
+    padding: 1.2rem;
+    height: 3.6rem;
+    font-size: 1.4rem;
     font-weight: 700;
-    border-radius: 20px;
+    border-radius: 2rem;
   }
 
-  /* PC */
-  @media (min-width: 1199px) {
+  @media (min-width: 1200px) {
     display: inline-flex;
     align-items: center;
-    padding: 12px;
-    height: 36px;
-    font-size: 14px;
+    padding: 1.2rem;
+    height: 3.6rem;
+    font-size: 1.4rem;
     font-weight: 700;
-    border-radius: 20px;
+    border-radius: 2rem;
   }
 }
 
 .red40 {
   color: var(--red-40);
 
-  /* Tablet */
-  @media (min-width: 767px) {
+  @media (min-width: 768px) {
     background-color: var(--red-40);
     color: var(--white);
   }
 
-  /* PC */
-  @media (min-width: 1199px) {
+  @media (min-width: 1200px) {
     background-color: var(--red-40);
     color: var(--white);
   }
@@ -44,14 +40,12 @@
 .red30 {
   color: var(--red-30);
 
-  /* Tablet */
-  @media (min-width: 767px) {
+  @media (min-width: 768px) {
     background-color: var(--red-30);
     color: var(--white);
   }
 
-  /* PC */
-  @media (min-width: 1199px) {
+  @media (min-width: 1200px) {
     background-color: var(--red-30);
     color: var(--white);
   }
@@ -60,14 +54,12 @@
 .closed {
   color: var(--gray-20);
 
-  /* Tablet */
-  @media (min-width: 767px) {
+  @media (min-width: 768px) {
     background-color: var(--gray-20);
     color: var(--white);
   }
 
-  /* PC */
-  @media (min-width: 1199px) {
+  @media (min-width: 1200px) {
     background-color: var(--gray-20);
     color: var(--white);
   }
