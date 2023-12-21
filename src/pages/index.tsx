@@ -1,10 +1,10 @@
-import Input from '@/components/@common/Input/Input';
+import EmailInput from '@/components/@common/Input/EmailInput';
 
 function Home() {
   return (
     <>
       hello world!
-      <Input placeholder="입력" type="이메일" />
+      <EmailInput />
     </>
   );
 }

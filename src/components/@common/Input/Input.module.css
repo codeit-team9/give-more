@@ -15,7 +15,7 @@
     border: 1px solid var(--gray-30);
 }
 
-.text {
+.errorMsg {
     font-size: 0.75rem;
     color: var(--red-40);
 }
