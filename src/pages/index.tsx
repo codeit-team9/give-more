@@ -1,12 +1,10 @@
-import EmailInput from '@/components/@common/Input/EmailInput';
-import PwInput from '@/components/@common/Input/PwInput';
+import PhoneInput from '@/components/@common/Input/PhoneInput';
 
 function Home() {
   return (
     <>
       hello world!
-      <EmailInput />
-      <PwInput />
+      <PhoneInput />
     </>
   );
 }
