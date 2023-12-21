@@ -1,0 +1,57 @@
+.wrapper {
+  display: grid;
+  padding: 2rem 1.25rem 1rem 1.25rem;
+
+  background: var(--gray-10);
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.375rem;
+  color: var(--gray-50);
+  grid-template-areas:
+    'm r'
+    'l .';
+  grid-gap: 2.5rem;
+}
+
+.leftWrapper {
+  grid-area: l;
+}
+
+.middleWrapper {
+  display: flex;
+  gap: 1.875rem;
+  grid-area: m;
+}
+
+.rightWrapper {
+  display: flex;
+  gap: 0.62rem;
+  justify-content: flex-end;
+  grid-area: r;
+}
+
+.icon {
+  width: 1.5625rem;
+  height: 1.5625rem;
+}
+
+/* tablet */
+@media (min-width: 767px) {
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-self: stretch;
+    padding: 2.3125rem 2rem;
+    font-size: 1rem;
+    line-height: 1.625rem;
+  }
+}
+
+/* desktop */
+@media (min-width: 1199px) {
+  .wrapper {
+    padding: 2.3125rem 14.875rem;
+  }
+}
