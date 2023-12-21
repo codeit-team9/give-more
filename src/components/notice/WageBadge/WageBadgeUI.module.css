@@ -56,3 +56,19 @@
     color: var(--white);
   }
 }
+
+.closed {
+  color: var(--gray-20);
+
+  /* Tablet */
+  @media (min-width: 767px) {
+    background-color: var(--gray-20);
+    color: var(--white);
+  }
+
+  /* PC */
+  @media (min-width: 1199px) {
+    background-color: var(--gray-20);
+    color: var(--white);
+  }
+}
