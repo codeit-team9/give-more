@@ -1,10 +1,10 @@
-import WageInput from '@/components/@common/Input/WageInput';
+import WorkInput from '@/components/@common/Input/WorkInput';
 
 function Home() {
   return (
     <>
       hello world!
-      <WageInput />
+      <WorkInput />
     </>
   );
 }
