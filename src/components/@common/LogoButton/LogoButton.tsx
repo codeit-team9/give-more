@@ -12,7 +12,7 @@ function LogoButton({ width }: Props) {
 
   return (
     <div style={wrapperStyles}>
-      <Link href="/jobLists">
+      <Link href="/">
         <LogoIcon />
       </Link>
     </div>
