@@ -1,12 +1,5 @@
-import WorkInput from '@/components/@common/Input/WorkInput';
-
 function Home() {
-  return (
-    <>
-      hello world!
-      <WorkInput />
-    </>
-  );
+  return <>hello world!</>;
 }
 
 export default Home;
