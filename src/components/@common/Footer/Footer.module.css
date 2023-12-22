@@ -12,6 +12,20 @@
     'm r'
     'l .';
   grid-gap: 2.5rem;
+
+  @media (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-self: stretch;
+    padding: 2.3125rem 2rem;
+    font-size: 1rem;
+    line-height: 1.625rem;
+  }
+
+  @media (min-width: 1200px) {
+    padding: 2.3125rem 14.875rem;
+  }
 }
 
 .leftWrapper {
@@ -34,24 +48,4 @@
 .icon {
   width: 1.5625rem;
   height: 1.5625rem;
-}
-
-/* tablet */
-@media (min-width: 768px) {
-  .wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    align-self: stretch;
-    padding: 2.3125rem 2rem;
-    font-size: 1rem;
-    line-height: 1.625rem;
-  }
-}
-
-/* desktop */
-@media (min-width: 1200px) {
-  .wrapper {
-    padding: 2.3125rem 14.875rem;
-  }
 }
