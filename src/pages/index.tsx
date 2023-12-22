@@ -1,10 +1,10 @@
-import PhoneInput from '@/components/@common/Input/PhoneInput';
+import WageInput from '@/components/@common/Input/WageInput';
 
 function Home() {
   return (
     <>
       hello world!
-      <PhoneInput />
+      <WageInput />
     </>
   );
 }

@@ -8,14 +8,12 @@ function PhoneInput() {
   };
 
   return (
-    <div>
-      <Input
-        placeholder="-를 제외한 전화번호를 입력해 주세요."
-        name="연락처*"
-        maxLength={13}
-        onChangeInput={onChangeInput}
-      />
-    </div>
+    <Input
+      placeholder="-를 제외한 전화번호를 입력해 주세요."
+      name="연락처*"
+      maxLength={13}
+      onChangeInput={onChangeInput}
+    />
   );
 }
 
