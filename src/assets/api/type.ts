@@ -8,8 +8,4 @@ type UserData = {
   links: string[];
 };
 
-type Test = {
-  id: string;
-};
-
-export type { UserData, Test };
+export type { UserData };
