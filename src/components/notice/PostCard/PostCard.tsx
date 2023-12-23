@@ -9,13 +9,21 @@ interface Props {
   cardImageUrl: string;
   restaurantName: string;
   period: string;
-  path: string;
+  address: string;
   defaultHourlyPay: number;
   currentHourlyPay: number;
   isClosed: boolean;
 }
 
-function PostCard({ cardImageUrl, restaurantName, period, path, defaultHourlyPay, currentHourlyPay, isClosed }: Props) {
+function PostCard({
+  cardImageUrl,
+  restaurantName,
+  period,
+  address,
+  defaultHourlyPay,
+  currentHourlyPay,
+  isClosed,
+}: Props) {
   const closedNoticeClass = isClosed && styles.lastNotice;
 
   return (
@@ -33,7 +41,7 @@ function PostCard({ cardImageUrl, restaurantName, period, path, defaultHourlyPay
         <div className={styles.descriptionContainer}>
           <h2 className={classNames(styles.restaurantName, closedNoticeClass)}>{restaurantName}</h2>
           <PostCardDescription type="period" description={period} isClosed={isClosed} />
-          <PostCardDescription type="path" description={path} isClosed={isClosed} />
+          <PostCardDescription type="path" description={address} isClosed={isClosed} />
         </div>
         <div className={styles.hourlyPayContainer}>
           <h2 className={classNames(styles.hourlyPay, closedNoticeClass)}>{separatorHourlyPay(currentHourlyPay)}원</h2>
