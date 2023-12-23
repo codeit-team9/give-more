@@ -41,7 +41,7 @@ function PostCard({
         <div className={styles.descriptionContainer}>
           <h2 className={classNames(styles.restaurantName, closedNoticeClass)}>{restaurantName}</h2>
           <PostCardDescription type="period" description={period} isClosed={isClosed} />
-          <PostCardDescription type="path" description={address} isClosed={isClosed} />
+          <PostCardDescription type="address" description={address} isClosed={isClosed} />
         </div>
         <div className={styles.hourlyPayContainer}>
           <h2 className={classNames(styles.hourlyPay, closedNoticeClass)}>{separatorHourlyPay(currentHourlyPay)}원</h2>
