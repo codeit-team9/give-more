@@ -3,7 +3,7 @@ import styles from './PostCardDescription.module.css';
 import { getIconByType } from '@/utils/getIconByType';
 
 interface Props {
-  type: 'period' | 'address';
+  type: 'duration' | 'address';
   description: string;
   isClosed: boolean;
 }

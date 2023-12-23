@@ -8,7 +8,7 @@ import separatorHourlyPay from '@/utils/separatorHourlyPay';
 interface Props {
   cardImageUrl: string;
   restaurantName: string;
-  period: string;
+  duration: string;
   address: string;
   defaultHourlyPay: number;
   currentHourlyPay: number;
@@ -18,7 +18,7 @@ interface Props {
 function PostCard({
   cardImageUrl,
   restaurantName,
-  period,
+  duration,
   address,
   defaultHourlyPay,
   currentHourlyPay,
@@ -40,7 +40,7 @@ function PostCard({
       <div className={styles.contentContainer}>
         <div className={styles.descriptionContainer}>
           <h2 className={classNames(styles.restaurantName, closedNoticeClass)}>{restaurantName}</h2>
-          <PostCardDescription type="period" description={period} isClosed={isClosed} />
+          <PostCardDescription type="duration" description={duration} isClosed={isClosed} />
           <PostCardDescription type="address" description={address} isClosed={isClosed} />
         </div>
         <div className={styles.hourlyPayContainer}>

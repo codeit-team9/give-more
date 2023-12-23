@@ -5,15 +5,15 @@ import PathIconGray from '@/assets/images/path_icon-gray.svg';
 
 interface Props {
   isClosed: boolean;
-  type: 'period' | 'address';
+  type: 'duration' | 'address';
 }
 
 export function getIconByType({ isClosed, type }: Props) {
-  if (!isClosed && type === 'period') {
+  if (!isClosed && type === 'duration') {
     return ClockIcon;
   }
 
-  if (isClosed && type === 'period') {
+  if (isClosed && type === 'duration') {
     return ClockIconGray;
   }
 
