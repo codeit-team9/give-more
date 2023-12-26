@@ -1,11 +1,12 @@
 import { useEffect } from 'react';
 import useAsync from '@/assets/api/settings/useAsync';
-import getNotice from '@/assets/api/getNotice';
+import getShopNotice from '@/assets/api/getShopNotice';
 
 function Home() {
-  const { execute, loading } = useAsync(getNotice);
+  const { execute, loading } = useAsync(getShopNotice);
 
   const Option = {
+    id: '383deacd-9d00-411e-8e42-85b0928e1058',
     offset: 10,
     limit: 10,
   };
