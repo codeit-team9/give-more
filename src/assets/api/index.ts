@@ -1,2 +1,2 @@
-export * from './usePostUser';
-export * from './usePostNewUser';
+export * from './postUser';
+export * from './postNewUser';

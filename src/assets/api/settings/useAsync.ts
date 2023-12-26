@@ -1,32 +1,27 @@
-import { useState } from 'react';
-import { AxiosResponse } from 'axios';
-import { useEffectOnce } from './useEffectOnce';
+import { useCallback, useState } from 'react';
 
-export const useAsync = <T>(asyncFunction: () => Promise<AxiosResponse<T>>) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function useAsync<T extends any[], U>(
+  asyncFunction: (...args: T) => Promise<U>,
+): { execute: (...args: T) => Promise<U>; loading: boolean } {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<null | unknown>(null);
-  const [data, setData] = useState<null | T>(null);
 
   // eslint-disable-next-line consistent-return
-  const excute = async () => {
-    setLoading(true);
-    setError(null);
-    setData(null);
+  const execute = useCallback(
+    async (...args: T) => {
+      setLoading(true);
 
-    try {
-      const response = await asyncFunction();
-      setData(response?.data);
-      return response;
-    } catch (err) {
-      setError(err);
-    } finally {
-      setLoading(false);
-    }
-  };
+      try {
+        const response = await asyncFunction(...args);
+        return response;
+      } finally {
+        setLoading(false);
+      }
+    },
+    [asyncFunction],
+  );
 
-  useEffectOnce(() => {
-    excute();
-  });
+  return { execute, loading };
+}
 
-  return { excute, loading, error, data };
-};
+export default useAsync;
