@@ -1,15 +1,16 @@
 import { useEffect } from 'react';
 import useAsync from '@/assets/api/settings/useAsync';
-import getShop from '@/assets/api/getShop';
+import getNotice from '@/assets/api/getNotice';
 
 function Home() {
-  const { execute, loading } = useAsync(getShop);
+  const { execute, loading } = useAsync(getNotice);
 
-  const Id = {
-    id: '383deacd-9d00-411e-8e42-85b0928e1058',
+  const Option = {
+    offset: 10,
+    limit: 10,
   };
   const fetch = async () => {
-    const response = await execute(Id);
+    const response = await execute(Option);
     console.log(response);
   };
 
