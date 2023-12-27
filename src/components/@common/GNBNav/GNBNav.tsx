@@ -25,16 +25,16 @@ function GNBNav({ page, isActive }: Props) {
       <div className={styles.searchWrapper}>
         <SearchBar value={inputValue} onChange={handleInputChange} />
       </div>
-      {page === 'owner' || page === 'notice' ? (
+      {page === 'employer' || page === 'employee' ? (
         <div className={styles.menuWrapper}>
-          <GNBMenuButton text={page === 'owner' ? '내 가게' : '내 프로필'} />
-          <GNBMenuButton text="로그아웃" />
+          <GNBMenuButton type={page} />
+          <GNBMenuButton type="signOut" />
           <NotificationButton active={isActive} />
         </div>
       ) : (
         <div className={styles.menuWrapper}>
-          <GNBMenuButton text="로그인" />
-          <GNBMenuButton text="회원가입" />
+          <GNBMenuButton type="signIn" />
+          <GNBMenuButton type="signUp" />
         </div>
       )}
     </div>
