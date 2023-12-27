@@ -11,14 +11,14 @@
   color: var(--gray-40);
   border-radius: 0.625rem;
 
-  @media (min-width: 767px) {
+  @media (min-width: 768px) {
     gap: 0.625rem;
     padding: 0.625rem;
     width: 21.5rem;
     font-size: 0.875rem;
   }
 
-  @media (min-width: 1199px) {
+  @media (min-width: 1200px) {
     .wrapper {
       width: 28.125rem;
     }
