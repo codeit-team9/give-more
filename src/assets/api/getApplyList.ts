@@ -3,12 +3,19 @@ import axiosInstance from './settings/axiosInstance';
 interface Props {
   ShopId: string;
   NoticeId: string;
-  Options?: string;
+  params: Params;
 }
 
-async function getApplyList({ ShopId, NoticeId, Options }: Props) {
+interface Params {
+  offset: number;
+  limit: number;
+}
+
+async function getApplyList(Props: Props) {
   try {
-    const response = await axiosInstance.get(`/shops/${ShopId}/notices/${NoticeId}/applications?${Options}`);
+    const response = await axiosInstance.get(`/shops/${Props.ShopId}/notices/${Props.NoticeId}/applications`, {
+      params: Props.params,
+    });
     return response;
   } catch (error) {
     return error;

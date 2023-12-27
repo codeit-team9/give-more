@@ -1,6 +1,11 @@
 import axiosInstance from './settings/axiosInstance';
 
 interface Props {
+  url: string;
+  params: Params;
+}
+
+interface Params {
   offset: number;
   limit: number;
   address?: string;
@@ -9,17 +14,9 @@ interface Props {
   hourlyPayGte?: string;
 }
 
-async function getAllNoticeList({ offset, limit, address, keyword, startsAtGte, hourlyPayGte }: Props) {
-  const options = {
-    offset,
-    limit,
-    address,
-    keyword,
-    startsAtGte,
-    hourlyPayGte,
-  };
+async function getAllNoticeList(Options: Props) {
   try {
-    const response = await axiosInstance.get(`/notices?${options}`);
+    const response = await axiosInstance.get(Options.url, Options);
     return response;
   } catch (error) {
     return error;

@@ -1,12 +1,12 @@
 import axiosInstance from './settings/axiosInstance';
 
 interface Props {
-  id: string;
+  ShopId: string;
 }
 
-async function getShop({ id }: Props) {
+async function getShop({ ShopId }: Props) {
   try {
-    const response = await axiosInstance.get(`/shops/${id}`);
+    const response = await axiosInstance.get(`/shops/${ShopId}`);
     return response;
   } catch (error) {
     return error;

@@ -1,18 +1,20 @@
 import axiosInstance from './settings/axiosInstance';
 
 interface Props {
-  id: string;
-  offset?: number;
-  limit?: number;
+  ShopId: string;
+  params: Params;
 }
 
-async function getShopsNoticeList({ id, offset, limit }: Props) {
-  const option = {
-    offset,
-    limit,
-  };
+interface Params {
+  offset: number;
+  limit: number;
+}
+
+async function getShopsNoticeList(Props: Props) {
   try {
-    const response = await axiosInstance.get(`/shops/${id}/notices?${option}`);
+    const response = await axiosInstance.get(`/shops/${Props.ShopId}/notices`, {
+      params: Props.params,
+    });
     return response;
   } catch (error) {
     return error;

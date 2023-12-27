@@ -1,13 +1,23 @@
 import axiosInstance from './settings/axiosInstance';
 
 interface Props {
-  UserId: string;
-  Options?: string;
+  Authorization?: { token: string };
+  Url: Url;
+  Params: Params;
 }
 
-async function getNotification({ UserId, Options = '' }: Props) {
+interface Url {
+  UserId: string;
+}
+
+interface Params {}
+
+async function getNotification(Props: Props) {
   try {
-    const response = await axiosInstance.get(`/users/${UserId}/alerts?${Options}`);
+    const response = await axiosInstance.get(`/users/${Props.Url.UserId}/alerts`, {
+      params: Props.Params,
+      headers: { Authorization: `Bearer ${Props.Authorization?.token}` },
+    });
     return response;
   } catch (error) {
     return error;

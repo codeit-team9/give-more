@@ -1,12 +1,12 @@
 import axiosInstance from './settings/axiosInstance';
 
 interface Props {
-  id: string;
+  UserId: string;
 }
 
-async function getUser({ id }: Props) {
+async function getUser({ UserId }: Props) {
   try {
-    const response = await axiosInstance.get(`/users/${id}`);
+    const response = await axiosInstance.get(`/users/${UserId}`);
     return response;
   } catch (error) {
     return error;

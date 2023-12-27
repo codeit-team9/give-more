@@ -6,7 +6,6 @@ interface Props {
   type: string;
 }
 
-// eslint-disable-next-line consistent-return
 async function postNewUser({ email, password, type }: Props) {
   const UserData = {
     email,
