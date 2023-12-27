@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import useAsync from '@/assets/api/settings/useAsync';
-import getUserApply from '@/assets/api/getUserApply';
+import getNotification from '@/assets/api/getNotification';
 
 function Home() {
-  const { execute, loading } = useAsync(getUserApply);
+  const { execute, loading } = useAsync(getNotification);
 
   const Id = {
     UserId: '52228cd0-a7cf-4862-a1a2-ebfbd324a26c',
