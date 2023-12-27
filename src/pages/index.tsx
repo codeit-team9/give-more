@@ -1,13 +1,12 @@
 import { useEffect } from 'react';
 import useAsync from '@/assets/api/settings/useAsync';
-import postApply from '@/assets/api/postApply';
+import getUserApply from '@/assets/api/getUserApply';
 
 function Home() {
-  const { execute, loading } = useAsync(postApply);
+  const { execute, loading } = useAsync(getUserApply);
 
   const Id = {
-    ShopId: '383deacd-9d00-411e-8e42-85b0928e1058',
-    NoticeId: '203a5ba9-9c5d-4f4e-aa6d-f32e87eda95c',
+    UserId: '52228cd0-a7cf-4862-a1a2-ebfbd324a26c',
   };
 
   const fetch = async () => {
