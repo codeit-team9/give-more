@@ -1,19 +1,14 @@
 import axiosInstance from './settings/axiosInstance';
+import { ApplyData, Pagenation } from './type';
 
 interface Props {
-  ShopId: string;
-  NoticeId: string;
-  params: Params;
-}
-
-interface Params {
-  offset: number;
-  limit: number;
+  url: ApplyData;
+  params: Pagenation;
 }
 
 async function getApplyList(Props: Props) {
   try {
-    const response = await axiosInstance.get(`/shops/${Props.ShopId}/notices/${Props.NoticeId}/applications`, {
+    const response = await axiosInstance.get(`/shops/${Props.url.shopId}/notices/${Props.url.noticeId}/applications`, {
       params: Props.params,
     });
     return response;

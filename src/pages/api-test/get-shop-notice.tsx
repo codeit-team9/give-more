@@ -6,8 +6,10 @@ function Home() {
   const { execute } = useAsync(getShopNotice);
 
   const Props = {
-    ShopId: '383deacd-9d00-411e-8e42-85b0928e1058',
-    NoticeId: '203a5ba9-9c5d-4f4e-aa6d-f32e87eda95c',
+    url: {
+      shopId: '383deacd-9d00-411e-8e42-85b0928e1058',
+      noticeId: '203a5ba9-9c5d-4f4e-aa6d-f32e87eda95c',
+    },
     params: {
       offset: 30,
       limit: 20,

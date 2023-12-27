@@ -1,18 +1,14 @@
 import axiosInstance from './settings/axiosInstance';
+import { Pagenation, ShopId } from './type';
 
 interface Props {
-  ShopId: string;
-  params: Params;
-}
-
-interface Params {
-  offset: number;
-  limit: number;
+  url: ShopId;
+  params: Pagenation;
 }
 
 async function getShopsNoticeList(Props: Props) {
   try {
-    const response = await axiosInstance.get(`/shops/${Props.ShopId}/notices`, {
+    const response = await axiosInstance.get(`/shops/${Props.url.shopId}/notices`, {
       params: Props.params,
     });
     return response;

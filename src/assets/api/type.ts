@@ -1,38 +1,67 @@
-interface UserTokenData {
-  response: UserToken;
-}
-
-interface UserToken {
-  token: string;
-  user: User;
-  links: string[];
-}
-
-interface NewUserData {
-  response: NewUser;
-}
-
-interface NewUser {
+interface UserInfo {
   email: string;
   password: string;
-  type: UserType;
-}
-
-interface User {
-  item: UserItem;
-  href: string;
-}
-
-interface UserItem {
-  id: string;
-  email: string;
-  type: UserType;
-  name: string;
-  phone: string;
-  address: string;
-  bio: string;
 }
 
 type UserType = 'employee' | 'employer';
 
-export type { UserTokenData, UserToken, NewUserData, NewUser, User, UserItem, UserType };
+interface NewUserInfo extends UserInfo {
+  userType: UserType;
+}
+
+interface UserId {
+  userId: string;
+}
+
+interface ShopId {
+  shopId: string;
+}
+
+interface NoticeId {
+  noticeId: string;
+}
+
+interface ApplyData extends ShopId, NoticeId {}
+
+interface NewShopData {
+  name: string;
+  category: string;
+  address1: string;
+  address2: string;
+  description: string;
+  imageUrl: string;
+  originalHourlyPay: number;
+}
+
+interface Pagenation {
+  offset: number;
+  limit: number;
+}
+
+interface NoticeSearch extends Pagenation {
+  address?: string;
+  keyword?: string;
+  startsAtGte?: string;
+  hourlyPayGte?: string;
+}
+
+interface NewNoticeData {
+  hourlyPay: number;
+  startsAt: string;
+  workhour: number;
+  description: string;
+}
+
+export type {
+  UserInfo,
+  UserType,
+  NewUserInfo,
+  UserId,
+  ShopId,
+  NoticeId,
+  ApplyData,
+  NewShopData,
+  Pagenation,
+  NoticeSearch,
+  NewNoticeData,
+};

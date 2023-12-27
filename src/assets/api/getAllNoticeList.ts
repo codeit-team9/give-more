@@ -1,22 +1,13 @@
 import axiosInstance from './settings/axiosInstance';
+import { NoticeSearch } from './type';
 
 interface Props {
-  url: string;
-  params: Params;
+  params: NoticeSearch;
 }
 
-interface Params {
-  offset: number;
-  limit: number;
-  address?: string;
-  keyword?: string;
-  startsAtGte?: string;
-  hourlyPayGte?: string;
-}
-
-async function getAllNoticeList(Options: Props) {
+async function getAllNoticeList(Props: Props) {
   try {
-    const response = await axiosInstance.get(Options.url, Options);
+    const response = await axiosInstance.get('/notices', Props);
     return response;
   } catch (error) {
     return error;

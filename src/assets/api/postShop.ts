@@ -1,24 +1,15 @@
 import axiosInstance from './settings/axiosInstance';
+import { NewShopData } from './type';
 
 interface Props {
-  Authorization?: { token: string };
-  Data: Data;
+  authorization?: { token: string };
+  data: NewShopData;
 }
 
-interface Data {
-  name: string;
-  category: string;
-  address1: string;
-  address2: string;
-  description: string;
-  imageUrl: string;
-  originalHourlyPay: number;
-}
-
-async function postShop(Params: Props) {
+async function postShop(Props: Props) {
   try {
-    const response = await axiosInstance.post('/shops', Params.Data, {
-      headers: { Authorization: `Bearer ${Params.Authorization?.token}` },
+    const response = await axiosInstance.post('/shops', Props.data, {
+      headers: { Authorization: `Bearer ${Props.authorization?.token}` },
     });
     return response;
   } catch (error) {

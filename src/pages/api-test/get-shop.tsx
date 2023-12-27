@@ -6,7 +6,7 @@ function Home() {
   const { execute } = useAsync(getShop);
 
   const Props = {
-    ShopId: '383deacd-9d00-411e-8e42-85b0928e1058',
+    shopId: '383deacd-9d00-411e-8e42-85b0928e1058',
   };
 
   const fetch = async () => {

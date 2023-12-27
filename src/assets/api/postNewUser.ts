@@ -1,20 +1,9 @@
 import axiosInstance from './settings/axiosInstance';
+import { NewUserInfo } from './type';
 
-interface Props {
-  email: string;
-  password: string;
-  type: string;
-}
-
-async function postNewUser({ email, password, type }: Props) {
-  const UserData = {
-    email,
-    password,
-    type,
-  };
-
+async function postNewUser(Props: NewUserInfo) {
   try {
-    const response = await axiosInstance.post('/users', UserData);
+    const response = await axiosInstance.post('/users', Props);
     return response;
   } catch (error) {
     return error;

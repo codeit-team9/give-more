@@ -1,18 +1,15 @@
 import axiosInstance from './settings/axiosInstance';
+import { UserId } from './type';
 
 interface Props {
-  Authorization?: { token: string };
-  Data: Data;
-}
-
-interface Data {
-  UserId: string;
+  authorization?: { token: string };
+  data: UserId;
 }
 
 async function getUserApply(Props: Props) {
   try {
-    const response = await axiosInstance.get(`/users/${Props.Data.UserId}/applications`, {
-      headers: { Authorization: `Bearer ${Props.Authorization?.token}` },
+    const response = await axiosInstance.get(`/users/${Props.data.userId}/applications`, {
+      headers: { Authorization: `Bearer ${Props.authorization?.token}` },
     });
     return response;
   } catch (error) {

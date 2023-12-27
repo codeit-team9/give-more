@@ -6,7 +6,6 @@ function Home() {
   const { execute } = useAsync(getAllNoticeList);
 
   const Props = {
-    url: '/notices',
     params: {
       offset: 30,
       limit: 20,

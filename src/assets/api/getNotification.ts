@@ -1,22 +1,17 @@
 import axiosInstance from './settings/axiosInstance';
+import { Pagenation, UserId } from './type';
 
 interface Props {
-  Authorization?: { token: string };
-  Url: Url;
-  Params: Params;
+  authorization?: { token: string };
+  url: UserId;
+  params: Pagenation;
 }
-
-interface Url {
-  UserId: string;
-}
-
-interface Params {}
 
 async function getNotification(Props: Props) {
   try {
-    const response = await axiosInstance.get(`/users/${Props.Url.UserId}/alerts`, {
-      params: Props.Params,
-      headers: { Authorization: `Bearer ${Props.Authorization?.token}` },
+    const response = await axiosInstance.get(`/users/${Props.url.userId}/alerts`, {
+      params: Props.params,
+      headers: { Authorization: `Bearer ${Props.authorization?.token}` },
     });
     return response;
   } catch (error) {

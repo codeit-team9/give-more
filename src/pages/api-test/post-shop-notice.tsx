@@ -10,10 +10,10 @@ function Home() {
 
   const Props = {
     Authorization: { token },
-    Url: {
-      ShopId: '383deacd-9d00-411e-8e42-85b0928e1058',
+    url: {
+      shopId: '383deacd-9d00-411e-8e42-85b0928e1058',
     },
-    Data: {
+    data: {
       hourlyPay: 10000,
       startsAt: '2024-06-01T20:37:10Z',
       workhour: 3,

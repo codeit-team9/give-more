@@ -1,22 +1,18 @@
 import axiosInstance from './settings/axiosInstance';
+import { ApplyData } from './type';
 
 interface Props {
-  Authorization?: { token: string };
-  Data: Data;
-}
-
-interface Data {
-  ShopId: string;
-  NoticeId: string;
+  authorization?: { token: string };
+  data: ApplyData;
 }
 
 async function postApply(Props: Props) {
   try {
     const response = await axiosInstance.post(
-      `/shops/${Props.Data.ShopId}/notices/${Props.Data.NoticeId}/applications`,
+      `/shops/${Props.data.shopId}/notices/${Props.data.noticeId}/applications`,
       null,
       {
-        headers: { Authorization: `Bearer ${Props.Authorization?.token}` },
+        headers: { Authorization: `Bearer ${Props.authorization?.token}` },
       },
     );
     return response;
