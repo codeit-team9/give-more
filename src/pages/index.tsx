@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import useAsync from '@/assets/api/settings/useAsync';
-import getApplyList from '@/assets/api/getApplyList';
+import postApply from '@/assets/api/postApply';
 
 function Home() {
-  const { execute, loading } = useAsync(getApplyList);
+  const { execute, loading } = useAsync(postApply);
 
   const Id = {
     ShopId: '383deacd-9d00-411e-8e42-85b0928e1058',
