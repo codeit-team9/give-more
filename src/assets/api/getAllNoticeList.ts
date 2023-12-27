@@ -9,7 +9,7 @@ interface Props {
   hourlyPayGte?: string;
 }
 
-async function getNotice({ offset, limit, address, keyword, startsAtGte, hourlyPayGte }: Props) {
+async function getAllNoticeList({ offset, limit, address, keyword, startsAtGte, hourlyPayGte }: Props) {
   const options = {
     offset,
     limit,
@@ -26,4 +26,4 @@ async function getNotice({ offset, limit, address, keyword, startsAtGte, hourlyP
   }
 }
 
-export default getNotice;
+export default getAllNoticeList;

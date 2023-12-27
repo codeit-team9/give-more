@@ -6,7 +6,7 @@ interface Props {
   limit?: number;
 }
 
-async function getShopsNotice({ id, offset, limit }: Props) {
+async function getShopsNoticeList({ id, offset, limit }: Props) {
   const option = {
     offset,
     limit,
@@ -19,4 +19,4 @@ async function getShopsNotice({ id, offset, limit }: Props) {
   }
 }
 
-export default getShopsNotice;
+export default getShopsNoticeList;
