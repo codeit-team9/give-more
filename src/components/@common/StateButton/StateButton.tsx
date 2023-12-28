@@ -5,8 +5,12 @@ interface Props {
 }
 
 function StateButton({ type }: Props) {
+	const isAcceptType = type === 'accept';
+	const buttonClassName = isAcceptType ? styles.accept : styles.reject;
+	const buttonText = isAcceptType ? '승인하기' : '거절하기';
+
 	return <div className={styles.wrapper}>
-		{type === 'accept' ? <div className={styles.accept}>거절하기</div> : <div className={styles.reject}>승인하기</div>}
+		<div className={buttonClassName}>{buttonText}</div>
 	</div>;
 }
 
