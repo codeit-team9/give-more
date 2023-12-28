@@ -1,0 +1,29 @@
+.wrapper {
+	display: inline-flex;
+	padding: 8px 12px;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 16px; 
+
+	border-radius: 6px;
+	background: var(--primary);
+	color: var(--white);
+ 
+	@media (min-width: 768px) {
+		padding: 10px 20px;
+		font-size: 14px;
+		font-weight: 700;
+		line-height: normal;
+	}
+
+	@media (min-width: 1200px) {
+		padding: 14px 136px;
+		font-size: 16px;
+		font-weight: 700;
+		line-height: 20px;
+	}
+}
