@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import useDropdown from '@/hooks/useDropdown';
 import DropdownUI from './DropdownUI';
+import { isSortType } from '@/constants/constants';
 
 interface Props {
   type?: 'default' | 'sort';
@@ -9,8 +10,9 @@ interface Props {
 }
 
 function Dropdown({ type = 'default', title, item }: Props) {
-  const { isOpenDropdown, toggleDropdown, closeDropdown } = useDropdown();
-  const [selectedLocation, setSelectedLocation] = useState('');
+  const isSort = isSortType(type);
+  const { isOpenDropdown, toggleDropdown, closeDropdown, setCategory } = useDropdown();
+  const [selectedLocation, setSelectedLocation] = useState(isSort ? '마감임박순' : '');
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -43,6 +45,7 @@ function Dropdown({ type = 'default', title, item }: Props) {
       isOpenDropdown={isOpenDropdown}
       setSelectedLocation={setSelectedLocation}
       closeDropdown={closeDropdown}
+      setCategory={setCategory}
     />
   );
 }

@@ -29,3 +29,5 @@ export const LOCATIONS = [
 export const CATEGORY = ['한식', '중식', '일식', '양식', '분식', '카페', '편의점', '기타'];
 
 export const SORT = ['마감임박순', '시급많은순', '시간적은순', '가나다순'];
+
+export const isSortType = (type: 'default' | 'sort') => type === 'sort';
