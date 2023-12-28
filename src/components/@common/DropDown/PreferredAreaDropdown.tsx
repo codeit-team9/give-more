@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
+import styles from '@/components/@common/DropDown/PreferredAreaDropdown.module.css';
+import DropdownIcon from '@/assets/images/dropdown_icon.svg';
 
 const locations = [
   '서울시 종로구',
@@ -28,20 +30,34 @@ const locations = [
   '서울시 강동구',
 ];
 
-function PreferredAreaDropdown() {
-  const [selectedLocation, setSelectedLocation] = useState(locations[0]);
+function PreferredAreaDropdown(): React.FC {
+  const [selectedLocation, setSelectedLocation] = useState('');
+
+  const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    setSelectedLocation(event.target.value);
+  };
 
   return (
-    <div style={{ maxHeight: '125px', overflowY: 'scroll' }}>
-      <select value={selectedLocation} onChange={(e) => setSelectedLocation(e.target.value)}>
-        {locations.map((location) => (
-          <option key={location} value={location}>
-            {location}
-          </option>
-        ))}
-      </select>
-    </div>
+    <select value={selectedLocation} onChange={handleChange}>
+      {locations.map((location) => (
+        <option key={location} value={location}>
+          {location}
+        </option>
+      ))}
+    </select>
   );
 }
 
 export default PreferredAreaDropdown;
+
+// function PreferredAreaDropdown() {
+//   const [selectedLocation, setSelectedLocation] = useState(locations[0]);
+//   const [isOpen, setIsOpen] = useState(false);
+//   return (
+//     <div className="{styles.wrapper}">
+//       <DropdownIcon />
+//     </div>
+//   );
+// }
+
+// export default PreferredAreaDropdown;
