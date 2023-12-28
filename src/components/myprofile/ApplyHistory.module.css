@@ -1,0 +1,95 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid var(--gray-20);
+  border-radius: 8px;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  font-size: 1.6rem;
+  border-bottom: 1px solid var(--gray-20);
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  background-color: #fef7f6;
+  font-size: 1.4rem;
+}
+
+.header .shop {
+  padding: 1.4rem 1.2rem;
+}
+
+.shop {
+  width: 22.8rem;
+  padding: 2rem 1.2rem;
+}
+
+.header .date {
+  padding: 1.4rem 1.2rem;
+}
+
+.date {
+  width: 30rem;
+
+  padding: 2rem 1.2rem;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+  @media (max-width: 1200px) {
+  }
+}
+
+.header .hourlyPay {
+  padding: 1.4rem 1.2rem;
+}
+
+.hourlyPay {
+  width: 20rem;
+  padding: 2rem 1.2rem;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+  @media (max-width: 1200px) {
+    display: none;
+  }
+}
+
+.header .status {
+  padding: 1.4rem 1.2rem;
+}
+
+.status {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+
+  width: 23.6rem;
+  padding: 2rem 1.2rem;
+
+  @media (max-width: 768px) {
+    border-left: 1px solid var(--gray-20);
+  }
+
+  @media (max-width: 1200px) {
+    border-left: 1px solid var(--gray-20);
+  }
+}
