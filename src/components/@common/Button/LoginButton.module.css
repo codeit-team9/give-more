@@ -1,4 +1,4 @@
-.wrapper {
+.button {
 	display: inline-flex;
 	padding: 8px 12px;
 	justify-content: center;
@@ -10,8 +10,6 @@
 	line-height: 16px; 
 
 	border-radius: 6px;
-	background: var(--primary);
-	color: var(--white);
  
 	@media (min-width: 768px) {
 		padding: 10px 20px;
@@ -26,4 +24,15 @@
 		font-weight: 700;
 		line-height: 20px;
 	}
+}
+
+.solid {
+	background: var(--primary);
+	color: var(--white);
+}
+
+.notsolid {
+	border: 1px solid var(--primary);
+	background: var(-white);
+	color: var(--primary);
 }
