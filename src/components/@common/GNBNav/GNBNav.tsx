@@ -6,11 +6,11 @@ import NotificationButton from '@/components/@common/NotificationButton/Notifica
 import styles from './GNBNav.module.css';
 
 interface Props {
-  page: string;
+  userType?: 'employer' | 'employee';
   isActive: boolean;
 }
 
-function GNBNav({ page, isActive }: Props) {
+function GNBNav({ userType, isActive }: Props) {
   const [inputValue, setInputValue] = useState('');
 
   const handleInputChange = (newValue: string) => {
@@ -25,9 +25,9 @@ function GNBNav({ page, isActive }: Props) {
       <div className={styles.searchWrapper}>
         <SearchBar value={inputValue} onChange={handleInputChange} />
       </div>
-      {page === 'employer' || page === 'employee' ? (
+      {userType === 'employer' || userType === 'employee' ? (
         <div className={styles.menuWrapper}>
-          <GNBMenuButton type={page} />
+          <GNBMenuButton type={userType} />
           <GNBMenuButton type="signOut" />
           <NotificationButton active={isActive} />
         </div>
