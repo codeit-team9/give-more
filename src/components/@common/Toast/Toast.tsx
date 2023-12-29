@@ -3,7 +3,7 @@ import { TOAST_MESSAGE } from '@/constants/TOAST';
 import styles from './Toast.module.css';
 
 interface Props {
-  type: string;
+  type: 'accepted' | 'modified' | 'applied' | 'canceled';
 }
 
 function Toast({ type }: Props) {
@@ -19,7 +19,7 @@ function Toast({ type }: Props) {
     return () => clearTimeout(timer);
   }, []);
 
-  return isActive ? <div className={styles.wrapper}>{content}</div> : null;
+  return isActive && <div className={styles.wrapper}>{content}</div>;
 }
 
 export default Toast;
