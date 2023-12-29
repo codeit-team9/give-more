@@ -1,5 +1,7 @@
 import React from 'react';
+import classNames from 'classnames';
 import Input from './Input';
+import styles from './Input.module.css';
 
 function WorkInput() {
   const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -7,9 +9,10 @@ function WorkInput() {
   };
 
   return (
-    <div>
-      <Input name="업무 시간*" maxLength={3} innerText="시간" onChangeInput={onChangeInput} />
-    </div>
+    <>
+      <Input name="업무 시간*" maxLength={3} onChangeInput={onChangeInput} />
+      <p className={classNames(styles.innerText, styles.work)}>시간</p>
+    </>
   );
 }
 
