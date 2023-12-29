@@ -1,7 +1,7 @@
-import StateButton from "@/components/@common/StateButton/StateButton";
+import ApplyList from '@/components/owner/ApplyListUi';
 
 function Home() {
-  return <StateButton type="reject" />;
+  return <ApplyList />;
 }
 
 export default Home;

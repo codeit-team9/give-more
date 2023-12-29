@@ -1,0 +1,58 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid var(--gray-20);
+  border-radius: 8px;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  font-size: 1.6rem;
+  border-bottom: 1px solid var(--gray-20);
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  background-color: #fef7f6;
+  font-size: 1.4rem;
+}
+
+.header .applicant {
+  width: 22.8rem;
+  padding: 1.4rem 1.2rem;
+}
+
+.applicant {
+  width: 22.8rem;
+  padding: 2rem 1.2rem;
+}
+
+.header .introduce {
+  padding: 1.4rem 1.2rem;
+}
+
+.introduce {
+  width: 30rem;
+  padding: 2rem 1.2rem;
+}
+
+.header .phone {
+  padding: 1.4rem 1.2rem;
+}
+
+.phone {
+  width: 20rem;
+  padding: 2rem 1.2rem;
+}
+
+.header .status {
+  padding: 1.4rem 1.2rem;
+}
+
+.status {
+  width: 23.6rem;
+  padding: 2rem 1.2rem;
+}
