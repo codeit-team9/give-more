@@ -7,11 +7,11 @@ interface Props {
   isError?: boolean;
   type?: string;
   maxLength?: number;
-  innerText?: string;
+  errorMsg?: string;
   onChangeInput?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-function Input({ placeholder = '입력', name, isError, type, maxLength, innerText, onChangeInput }: Props) {
+function Input({ placeholder = '', name, isError, type, maxLength, errorMsg, onChangeInput }: Props) {
   return (
     <div className={styles.wrapper}>
       <p>{name}</p>
@@ -22,7 +22,7 @@ function Input({ placeholder = '입력', name, isError, type, maxLength, innerTe
         maxLength={maxLength}
         onChange={onChangeInput}
       />
-      <p className={styles.innerText}>{innerText}</p>
+      <p className={styles.errorMsg}>{errorMsg}</p>
     </div>
   );
 }
