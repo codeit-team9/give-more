@@ -12,10 +12,10 @@ function ApplyListUi() {
         <div className={styles.status}>상태</div>
       </div>
       <div>
-        <ApplyList />
-        <ApplyList />
-        <ApplyList />
-        <ApplyList />
+        <ApplyList applicant="applicant" introduce="introduce" phone="010-0000-0000" status="pending" />
+        <ApplyList applicant="applicant" introduce="introduce" phone="010-0000-0000" status="accept" />
+        <ApplyList applicant="applicant" introduce="introduce" phone="010-0000-0000" status="reject" />
+        <ApplyList applicant="applicant" introduce="introduce" phone="010-0000-0000" status="pending" />
       </div>
       <div className={styles.pagenation}>pagenation button</div>
     </div>
