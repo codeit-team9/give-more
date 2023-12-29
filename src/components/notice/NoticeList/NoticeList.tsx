@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import PostCard from '../PostCard/PostCard';
+import PostCard from '../NoticeCard/NoticeCard';
 import styles from './NoticeList.module.css';
 import formatWorkTime from '@/utils/formatWorkTime';
 import { Notice } from '@/@types/notice.types';
@@ -17,7 +17,7 @@ function NoticeList({ type, items, count }: Props) {
         const { id, hourlyPay, startsAt, workhour, closed, shop } = notice.item;
         const { name, address1, imageUrl, originalHourlyPay } = shop.item;
 
-        const formattedWorkTime = formatWorkTime({ startsAt, workHour: workhour });
+        const formattedWorkTime = formatWorkTime({ type: 'notice', startsAt, workHour: workhour });
 
         // eslint-disable-next-line consistent-return
         return (
