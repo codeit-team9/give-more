@@ -1,12 +1,5 @@
-import HourlyPayInput from '@/components/@common/Input/HourlyPayInput';
-
 function Home() {
-  return (
-    <>
-      hello world!
-      <HourlyPayInput />
-    </>
-  );
+  return <>hello world!</>;
 }
 
 export default Home;
