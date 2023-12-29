@@ -1,0 +1,41 @@
+.wrapper {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  padding: 0.5rem;
+
+  width: 20.9375rem;
+
+  background: var(--gray-10);
+  font-size: 0.75rem;
+  color: var(--gray-40);
+  border-radius: 0.625rem;
+
+  @media (min-width: 768px) {
+    gap: 0.625rem;
+    padding: 0.625rem;
+    width: 21.5rem;
+    font-size: 0.875rem;
+  }
+
+  @media (min-width: 1200px) {
+    .wrapper {
+      width: 28.125rem;
+    }
+  }
+}
+
+.wrapper input {
+  border: 0;
+  width: 14.5625rem;
+  height: 1.25rem;
+  background: var(--gray-10);
+}
+
+.searchIcon {
+  width: 1rem;
+
+  @media (min-width: 767px) {
+    width: 1.25rem;
+  }
+}
