@@ -23,7 +23,7 @@ function ApplyList({ applicant, introduce, phone, status }: Props) {
           <StateButton type="accept" />
         </div>
       ) : (
-        <div>{status}</div>
+        <div className={styles.status}>{status}</div>
       )}
     </div>
   );

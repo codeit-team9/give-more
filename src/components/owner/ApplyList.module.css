@@ -23,7 +23,6 @@
 }
 
 .header .applicant {
-  width: 22.8rem;
   padding: 1.4rem 1.2rem;
 }
 
@@ -38,7 +37,8 @@
 
 .introduce {
   width: 30rem;
-  padding: 0 1.2rem;
+
+  padding: 2rem 1.2rem;
 
   overflow: hidden;
   text-overflow: ellipsis;
@@ -47,6 +47,13 @@
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+  @media (max-width: 1200px) {
+  }
 }
 
 .header .phone {
@@ -56,6 +63,14 @@
 .phone {
   width: 20rem;
   padding: 2rem 1.2rem;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+  @media (max-width: 1200px) {
+    display: none;
+  }
 }
 
 .header .status {
@@ -69,4 +84,12 @@
 
   width: 23.6rem;
   padding: 2rem 1.2rem;
+
+  @media (max-width: 768px) {
+    border-left: 1px solid var(--gray-20);
+  }
+
+  @media (max-width: 1200px) {
+    border-left: 1px solid var(--gray-20);
+  }
 }
