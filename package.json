@@ -21,7 +21,8 @@
     "react-dom": "^18",
     "react-hook-form": "^7.49.2",
     "react-query": "^3.39.3",
-    "yup": "^1.3.3"
+    "yup": "^1.3.3",
+    "zustand": "^4.4.7"
   },
   "devDependencies": {
     "@types/css-modules": "^1.0.5",
