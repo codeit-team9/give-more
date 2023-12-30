@@ -11,7 +11,7 @@ async function postShop(Props: Props) {
     const response = await axiosInstance.post('/shops', Props.data, {
       headers: { Authorization: `Bearer ${Props.authorization?.token}` },
     });
-    return response;
+    return response.data;
   } catch (error) {
     return error;
   }

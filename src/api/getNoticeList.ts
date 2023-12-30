@@ -8,7 +8,7 @@ interface Props {
 async function getNoticeList(Props: Props) {
   try {
     const response = await axiosInstance.get('/notices', Props);
-    return response;
+    return response.data;
   } catch (error) {
     return error;
   }

@@ -16,7 +16,7 @@ async function putApply(props: Props) {
         headers: { Authorization: `Bearer ${props.authorization?.token}` },
       },
     );
-    return response;
+    return response.data;
   } catch (error) {
     return error;
   }

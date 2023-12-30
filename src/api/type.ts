@@ -74,6 +74,15 @@ interface NewNoticeData {
   description: string;
 }
 
+interface FilterData {
+  offset: number;
+  limit: number;
+  address: string;
+  startsAtGte: string;
+  hourlyPayGte: number;
+  sort: SortType;
+}
+
 export type {
   UserInfo,
   UserType,
@@ -87,6 +96,8 @@ export type {
   NotificationData,
   NewShopData,
   Pagenation,
+  SortType,
   NoticeSearch,
   NewNoticeData,
+  FilterData,
 };

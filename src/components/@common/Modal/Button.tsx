@@ -2,32 +2,74 @@ import classnames from 'classnames';
 import styles from './Button.module.css';
 
 interface Props {
-  type: 'confirm' | 'select' | 'login';
+  type: 'base' | 'signin' | 'filter';
   onClick: () => void;
-  onClose: () => void;
+  onClose?: () => void;
+  onReset?: () => void;
 }
 
-function Button({ type, onClick, onClose }: Props) {
+function Button({ type, onClick, onClose, onReset }: Props) {
   const handleCloseModal = () => {
-    onClose();
+    if (onClose) {
+      onClose();
+    }
   };
 
   const handleConfirm = () => {
-    onClick();
-    onClose();
+    if (type === 'filter' && onReset) {
+      onReset();
+    }
+
+    if (onClose) {
+      onClick();
+      onClose();
+    }
   };
 
-  return type === 'confirm' ? (
+  const renderButtonText = () => {
+    switch (type) {
+      case 'signin':
+        return ['취소', '로그인 하기'];
+      case 'filter':
+        return ['초기화', '적용하기'];
+      default:
+        return ['확인'];
+    }
+  };
+
+  const [cancelText, confirmText] = renderButtonText();
+
+  const isBaseType = type === 'base';
+  const isSignInType = type === 'signin';
+  const isFilterType = type === 'filter';
+
+  let cancelButtonText = cancelText;
+  let confirmButtonText = confirmText;
+
+  if (isSignInType) {
+    cancelButtonText = '취소';
+    confirmButtonText = '로그인 하기';
+  }
+
+  return isBaseType ? (
     <button className={styles.button} type="button" onClick={handleConfirm}>
       확인
     </button>
   ) : (
-    <div className={styles.wrapper}>
-      <button className={styles.button} type="button" onClick={handleCloseModal}>
-        {type === 'select' ? '아니요' : '취소'}
+    <div className={classnames(styles.wrapper, isFilterType && styles.filter)}>
+      <button
+        className={classnames(styles.button, isFilterType && styles.filter)}
+        type="button"
+        onClick={handleCloseModal}
+      >
+        {cancelButtonText}
       </button>
-      <button className={classnames(styles.button, styles.confirm)} type="button" onClick={handleConfirm}>
-        {type === 'select' ? '확인' : '로그인 하기'}
+      <button
+        className={classnames(styles.button, styles.confirm, isFilterType && styles.filter)}
+        type="button"
+        onClick={handleConfirm}
+      >
+        {confirmButtonText}
       </button>
     </div>
   );

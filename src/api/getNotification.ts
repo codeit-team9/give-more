@@ -13,7 +13,7 @@ async function getNotification(Props: Props) {
       params: Props.params,
       headers: { Authorization: `Bearer ${Props.authorization?.token}` },
     });
-    return response;
+    return response.data;
   } catch (error) {
     return error;
   }

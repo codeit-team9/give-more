@@ -3,6 +3,9 @@
   gap: 0.8rem;
 }
 
+.wrapper.filter {
+}
+
 .button {
   display: flex;
   align-items: center;
@@ -19,4 +22,9 @@
 .button.confirm {
   background-color: var(--primary);
   color: var(--white);
+}
+
+.button.confirm.filter {
+  padding: 1.2rem 0;
+  width: 26rem;
 }

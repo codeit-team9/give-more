@@ -65,3 +65,7 @@ export interface Items {
   hasNext: boolean;
   items: Item[];
 }
+
+export interface ItemsData {
+  data: Items;
+}

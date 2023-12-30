@@ -4,7 +4,7 @@ import { UserId } from './type';
 async function getUser(Props: UserId) {
   try {
     const response = await axiosInstance.get(`/users/${Props.userId}`);
-    return response;
+    return response.data;
   } catch (error) {
     return error;
   }
