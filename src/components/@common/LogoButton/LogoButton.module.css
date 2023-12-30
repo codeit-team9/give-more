@@ -9,3 +9,15 @@
     width: 6.80319rem;
   }
 }
+
+.login {
+  width: 13rem;
+
+  @media (min-width: 768px) {
+    width: 15.5rem;
+  }
+
+  @media (min-width: 1200px) {
+    width: 15.5rem;
+  }
+}
