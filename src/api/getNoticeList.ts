@@ -5,7 +5,7 @@ interface Props {
   params: NoticeSearch;
 }
 
-async function getAllNoticeList(Props: Props) {
+async function getNoticeList(Props: Props) {
   try {
     const response = await axiosInstance.get('/notices', Props);
     return response;
@@ -14,4 +14,4 @@ async function getAllNoticeList(Props: Props) {
   }
 }
 
-export default getAllNoticeList;
+export default getNoticeList;

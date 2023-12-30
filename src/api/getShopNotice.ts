@@ -1,16 +1,13 @@
 import axiosInstance from './settings/axiosInstance';
-import { ApplyData, Pagenation } from './type';
+import { ApplyData } from './type';
 
 interface Props {
   url: ApplyData;
-  params: Pagenation;
 }
 
 async function getShopNotice(Props: Props) {
   try {
-    const response = await axiosInstance.get(`/shops/${Props.url.noticeId}/notices/${Props.url.noticeId}`, {
-      params: Props.params,
-    });
+    const response = await axiosInstance.get(`/shops/${Props.url.noticeId}/notices/${Props.url.noticeId}`);
     return response;
   } catch (error) {
     return error;

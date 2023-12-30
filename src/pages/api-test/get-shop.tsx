@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import useAsync from '@/assets/api/settings/useAsync';
-import getShop from '@/assets/api/getShop';
+import useAsync from '@/hooks/useAsync';
+import getShop from '@/api/getShop';
 
 function Home() {
   const { execute } = useAsync(getShop);

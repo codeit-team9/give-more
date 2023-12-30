@@ -1,13 +1,14 @@
 import { useEffect } from 'react';
-import useAsync from '@/assets/api/settings/useAsync';
-import postUser from '@/assets/api/postUser';
+import useAsync from '@/hooks/useAsync';
+import postNewUser from '@/api/postNewUser';
 
 function Home() {
-  const { execute } = useAsync(postUser);
+  const { execute } = useAsync(postNewUser);
 
   const Props = {
     email: 'employer@gmail.com',
     password: 'abcd1234',
+    userType: 'employee' as const,
   };
 
   const fetch = async () => {

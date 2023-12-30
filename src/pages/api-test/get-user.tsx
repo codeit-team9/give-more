@@ -1,12 +1,16 @@
 import { useEffect } from 'react';
-import useAsync from '@/assets/api/settings/useAsync';
-import getUser from '@/assets/api/getUser';
+import useAsync from '@/hooks/useAsync';
+import getUser from '@/api/getUser';
+import extractUserIdFromJWT from '@/utils/extractUserIdFromJWT';
 
 function Home() {
   const { execute } = useAsync(getUser);
 
+  const token =
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzYzk5MzQ3My00YjE3LTRhODgtYTdlMS1hYTZiNWIwMWZlNGYiLCJpYXQiOjE3MDMwNTAxMDJ9.YTplzpRTNv_SWokngfeN7Jeh2GZy7b18qTo3-qcKDrk';
+
   const Props = {
-    userId: 'c2c7ff2a-f0c1-416a-96ea-6e5cb445b2b6',
+    userId: extractUserIdFromJWT(token),
   };
 
   const fetch = async () => {

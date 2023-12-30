@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import useAsync from '@/assets/api/settings/useAsync';
-import getNotification from '@/assets/api/getNotification';
+import useAsync from '@/hooks/useAsync';
+import getNotification from '@/api/getNotification';
 
 function Home() {
   const { execute } = useAsync(getNotification);
@@ -14,8 +14,8 @@ function Home() {
       userId: '3c993473-4b17-4a88-a7e1-aa6b5b01fe4f',
     },
     params: {
-      offset: 30,
-      limit: 20,
+      offset: 0,
+      limit: 100,
     },
   };
 

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import useAsync from '@/assets/api/settings/useAsync';
-import getShopsNoticeList from '@/assets/api/getShopsNoticeList';
+import useAsync from '@/hooks/useAsync';
+import getShopsNoticeList from '@/api/getShopsNoticeList';
 
 function Home() {
   const { execute } = useAsync(getShopsNoticeList);
@@ -10,8 +10,8 @@ function Home() {
       shopId: '383deacd-9d00-411e-8e42-85b0928e1058',
     },
     params: {
-      offset: 30,
-      limit: 20,
+      offset: 0,
+      limit: 100,
     },
   };
 

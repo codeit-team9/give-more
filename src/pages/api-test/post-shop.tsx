@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import useAsync from '@/assets/api/settings/useAsync';
-import postShop from '@/assets/api/postShop';
+import useAsync from '@/hooks/useAsync';
+import postShop from '@/api/postShop';
 
 function Home() {
   const { execute } = useAsync(postShop);
@@ -9,8 +9,8 @@ function Home() {
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzYzk5MzQ3My00YjE3LTRhODgtYTdlMS1hYTZiNWIwMWZlNGYiLCJpYXQiOjE3MDMwNTAxMDJ9.YTplzpRTNv_SWokngfeN7Jeh2GZy7b18qTo3-qcKDrk';
 
   const Props = {
-    Authorization: { token },
-    Data: {
+    authorization: { token },
+    data: {
       name: '내 가게',
       category: '편의점',
       address1: '서울시 종로구',

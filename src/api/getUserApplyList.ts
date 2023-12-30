@@ -3,12 +3,12 @@ import { UserId } from './type';
 
 interface Props {
   authorization?: { token: string };
-  data: UserId;
+  url: UserId;
 }
 
-async function getUserApply(Props: Props) {
+async function getUserApplyList(Props: Props) {
   try {
-    const response = await axiosInstance.get(`/users/${Props.data.userId}/applications`, {
+    const response = await axiosInstance.get(`/users/${Props.url.userId}/applications`, {
       headers: { Authorization: `Bearer ${Props.authorization?.token}` },
     });
     return response;
@@ -17,4 +17,4 @@ async function getUserApply(Props: Props) {
   }
 }
 
-export default getUserApply;
+export default getUserApplyList;
