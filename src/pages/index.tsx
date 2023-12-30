@@ -1,7 +1,7 @@
-import ApplyHistoryUi from '@/components/myprofile/ApplyHistoryUi';
+import StateButton from '@/components/@common/StateButton/StateButton';
 
 function Home() {
-  return <ApplyHistoryUi />;
+  return <p>Hello World</p>;
 }
 
 export default Home;
