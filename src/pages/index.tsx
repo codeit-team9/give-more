@@ -1,7 +1,5 @@
-import StateButton from '@/components/@common/StateButton/StateButton';
-
 function Home() {
-  return <StateButton type="reject" />;
+  return <>Hello World</>;
 }
 
 export default Home;
