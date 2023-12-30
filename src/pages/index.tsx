@@ -1,7 +1,7 @@
-import StateButton from "@/components/@common/StateButton/StateButton";
+import ApplyHistoryUi from '@/components/myprofile/ApplyHistoryUi';
 
 function Home() {
-  return <StateButton type="reject" />;
+  return <ApplyHistoryUi />;
 }
 
 export default Home;
