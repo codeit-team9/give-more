@@ -1,4 +1,4 @@
-import { Items } from '@/types/notification.type';
+import { Items } from '@/@types/notification.type';
 import NotificationCard from '../NotificationCard/NotificationCard';
 
 interface Props {

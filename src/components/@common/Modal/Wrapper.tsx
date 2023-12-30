@@ -16,9 +16,31 @@ function Wrapper({ type, onClose, children }: Props) {
     if (ref.current && !ref.current.contains(event.target as Node)) onClose();
   };
 
+  const wrapperClassName = (() => {
+    switch (type) {
+      case 'notification':
+        return styles.notificationWrapper;
+      case 'filter':
+        return styles.filterWrapper;
+      default:
+        return styles.wrapper;
+    }
+  })();
+
+  const containerClassName = (() => {
+    switch (type) {
+      case 'notification':
+        return styles.notificationContainer;
+      case 'filter':
+        return styles.filterContainer;
+      default:
+        return styles.container;
+    }
+  })();
+
   return (
-    <div className={type ? styles.notificationWrapper : styles.wrapper} onClick={handleOutsideClick}>
-      <div className={type === 'notification' ? styles.notification : styles.container} ref={ref}>
+    <div className={wrapperClassName} onClick={handleOutsideClick}>
+      <div className={containerClassName} ref={ref}>
         {children}
       </div>
     </div>

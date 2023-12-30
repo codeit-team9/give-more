@@ -59,5 +59,9 @@ export interface Item {
 }
 
 export interface Items {
+  offset: number;
+  limit: number;
+  count: number;
+  hasNext: boolean;
   items: Item[];
 }
