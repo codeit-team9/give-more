@@ -2,20 +2,28 @@ import Image from 'next/image';
 import classNames from 'classnames';
 import styles from './PostCard.module.css';
 import PostCardDescription from './PostCardDescription';
-import HourlyPayBadge from '../HourlyPayBadge/HourlyPayBadge';
+import HourlyPayBadge from '@/components/notice/HourlyPayBadge/HourlyPayBadge';
 import separatorHourlyPay from '@/utils/separatorHourlyPay';
 
 interface Props {
   cardImageUrl: string;
   restaurantName: string;
-  period: string;
-  path: string;
+  duration: string;
+  address: string;
   defaultHourlyPay: number;
   currentHourlyPay: number;
   isClosed: boolean;
 }
 
-function PostCard({ cardImageUrl, restaurantName, period, path, defaultHourlyPay, currentHourlyPay, isClosed }: Props) {
+function PostCard({
+  cardImageUrl,
+  restaurantName,
+  duration,
+  address,
+  defaultHourlyPay,
+  currentHourlyPay,
+  isClosed,
+}: Props) {
   const closedNoticeClass = isClosed && styles.lastNotice;
 
   return (
@@ -32,8 +40,8 @@ function PostCard({ cardImageUrl, restaurantName, period, path, defaultHourlyPay
       <div className={styles.contentContainer}>
         <div className={styles.descriptionContainer}>
           <h2 className={classNames(styles.restaurantName, closedNoticeClass)}>{restaurantName}</h2>
-          <PostCardDescription type="period" description={period} isClosed={isClosed} />
-          <PostCardDescription type="path" description={path} isClosed={isClosed} />
+          <PostCardDescription type="duration" description={duration} isClosed={isClosed} />
+          <PostCardDescription type="address" description={address} isClosed={isClosed} />
         </div>
         <div className={styles.hourlyPayContainer}>
           <h2 className={classNames(styles.hourlyPay, closedNoticeClass)}>{separatorHourlyPay(currentHourlyPay)}원</h2>
