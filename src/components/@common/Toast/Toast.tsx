@@ -1,24 +1,14 @@
 import { useEffect, useState } from 'react';
+import { TOAST_MESSAGE } from '@/constants/TOAST';
 import styles from './Toast.module.css';
 
 interface Props {
-  type: 'accepted' | 'rejected';
+  type: 'accepted' | 'modified' | 'applied' | 'canceled';
 }
 
 function Toast({ type }: Props) {
   const [isActive, setIsActive] = useState(false);
-  let content = '';
-
-  switch (type) {
-    case 'accepted':
-      content = '등록 되었습니다.';
-      break;
-    case 'rejected':
-      content = '거절 되었습니다.';
-      break;
-    default:
-      break;
-  }
+  const content = TOAST_MESSAGE[type].message;
 
   useEffect(() => {
     setIsActive(true);
@@ -29,7 +19,7 @@ function Toast({ type }: Props) {
     return () => clearTimeout(timer);
   }, []);
 
-  return <div className={styles.wrapper}>{isActive && content}</div>;
+  return isActive && <div className={styles.wrapper}>{content}</div>;
 }
 
 export default Toast;

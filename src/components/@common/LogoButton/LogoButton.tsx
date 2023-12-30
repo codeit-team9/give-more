@@ -1,17 +1,10 @@
 import Link from 'next/link';
 import LogoIcon from '@/assets/images/logo_icon.svg';
+import styles from './LogoButton.module.css';
 
-interface Props {
-  width: number;
-}
-
-function LogoButton({ width }: Props) {
-  const wrapperStyles = {
-    width: `${width}rem`,
-  };
-
+function LogoButton() {
   return (
-    <div style={wrapperStyles}>
+    <div className={styles.wrapper}>
       <Link href="/">
         <LogoIcon />
       </Link>

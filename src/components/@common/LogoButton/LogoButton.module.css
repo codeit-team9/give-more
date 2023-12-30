@@ -1,0 +1,11 @@
+.wrapper {
+  width: 5.10238rem;
+
+  @media (min-width: 768px) {
+    width: 6.80319rem;
+  }
+
+  @media (min-width: 1200px) {
+    width: 6.80319rem;
+  }
+}

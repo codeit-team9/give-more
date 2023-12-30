@@ -2,7 +2,7 @@ import Image from 'next/image';
 import classNames from 'classnames';
 import styles from './PostCard.module.css';
 import PostCardDescription from './PostCardDescription';
-import HourlyPayBadge from '../HourlyPayBadge/HourlyPayBadge';
+import HourlyPayBadge from '@/components/notice/HourlyPayBadge/HourlyPayBadge';
 import separatorHourlyPay from '@/utils/separatorHourlyPay';
 
 interface Props {
