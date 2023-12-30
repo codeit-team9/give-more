@@ -1,5 +1,3 @@
-function UserTypeButton() {
-
-}
+function UserTypeButton() {}
 
 export default UserTypeButton;

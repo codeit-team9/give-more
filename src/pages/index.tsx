@@ -1,4 +1,4 @@
-import StateButton from "@/components/@common/StateButton/StateButton";
+import StateButton from '@/components/@common/StateButton/StateButton';
 
 function Home() {
   return <p>Hello World</p>;
