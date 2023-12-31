@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import useAsync from '@/hooks/useAsync';
-import postNewUser from '@/api/postNewUser';
+import postNewUser from '@/api/postUser';
 
 function Home() {
   const { execute } = useAsync(postNewUser);
@@ -8,7 +8,6 @@ function Home() {
   const Props = {
     email: 'employer@gmail.com',
     password: 'abcd1234',
-    userType: 'employee' as const,
   };
 
   const fetch = async () => {
