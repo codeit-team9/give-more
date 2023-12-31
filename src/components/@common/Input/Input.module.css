@@ -36,6 +36,7 @@
 
 .passwordWrapper {
   display: flex;
+  gap: 1.74rem;
   flex-direction: column;
 }
 
