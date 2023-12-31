@@ -13,6 +13,7 @@ import useLoginInfo from '@/hooks/useLoginInfo';
 
 function Signin() {
   const { execute } = useAsync(postUser);
+  const { isLogin } = useLoginInfo();
   const { email, password } = useSignin();
   const { isActive, setIsActive } = useToast();
   const { setIsLogin, setToken } = useLoginInfo();
@@ -39,6 +40,10 @@ function Signin() {
   const handleSignin = () => {
     fetch();
   };
+
+  if (isLogin) {
+    window.location.href = '/';
+  }
 
   return (
     <div className={styles.wrapper}>

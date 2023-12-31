@@ -11,9 +11,11 @@ import useToast from '@/hooks/useToast';
 import useAsync from '@/hooks/useAsync';
 import postNewUser from '@/api/postNewUser';
 import Toast from '@/components/@common/Toast/Toast';
+import useLoginInfo from '@/hooks/useLoginInfo';
 
 function SignUp() {
   const { execute } = useAsync(postNewUser);
+  const { isLogin } = useLoginInfo();
   const { email, password, isUser } = useSignup();
   const { isActive, setIsActive } = useToast();
   const [message, setMessage] = useState<
@@ -60,6 +62,10 @@ function SignUp() {
   const handleSignin = () => {
     fetch();
   };
+
+  if (isLogin) {
+    window.location.href = '/';
+  }
 
   return (
     <div className={styles.wrapper}>
