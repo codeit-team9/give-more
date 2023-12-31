@@ -9,11 +9,13 @@ import useToast from '@/hooks/useToast';
 import useAsync from '@/hooks/useAsync';
 import postUser from '@/api/postUser';
 import Toast from '@/components/@common/Toast/Toast';
+import useLoginInfo from '@/hooks/useLoginInfo';
 
 function Signin() {
   const { execute } = useAsync(postUser);
   const { email, password } = useSignin();
   const { isActive, setIsActive } = useToast();
+  const { setIsLogin, setToken } = useLoginInfo();
 
   const Props = {
     email,
@@ -24,7 +26,8 @@ function Signin() {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const response: any = await execute(Props);
     if (response.status === 200) {
-      //
+      setIsLogin(true);
+      setToken(response.item.token);
     } else {
       setIsActive(true);
       setTimeout(() => {
