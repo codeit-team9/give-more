@@ -44,10 +44,16 @@ function ApplyListUi({ shopId, noticeId }: ApplyData) {
         <div className={styles.status}>상태</div>
       </div>
       <div>
-        <ApplyList applicant="applicant" introduce="introduce" phone="010-0000-0000" status="pending" />
-        <ApplyList applicant="applicant" introduce="introduce" phone="010-0000-0000" status="accept" />
-        <ApplyList applicant="applicant" introduce="introduce" phone="010-0000-0000" status="reject" />
-        <ApplyList applicant="applicant" introduce="introduce" phone="010-0000-0000" status="pending" />
+        {applyData?.items.map((item) => (
+          <ApplyList
+            key={item.item.id}
+            applicant={item.item.user.item.name}
+            // introduce api 확인 필요
+            introduce={item.item.notice.item.description}
+            phone={item.item.user.item.phone}
+            status={item.item.status}
+          />
+        ))}
       </div>
       <div className={styles.pagenation}>pagenation button</div>
     </div>

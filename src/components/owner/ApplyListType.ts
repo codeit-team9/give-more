@@ -1,3 +1,5 @@
+import { Status } from '../myprofile/ApplyHistoryType';
+
 export interface RootObject {
   data: ApplyListData;
   status: number;
@@ -48,7 +50,7 @@ export interface Item {
 
 export interface Item2 {
   id: string;
-  status: string;
+  status: Status;
   createdAt: string;
   user: User;
   shop: Shop;
