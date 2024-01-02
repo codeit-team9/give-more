@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import Input from './Input';
-import useSignin from '@/hooks/useSignin';
+import useSignup from '@/hooks/useSignup';
 
-function EmailInput() {
+function SetEmailInput() {
   const [isError, setIsError] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
-  const { setEmail } = useSignin();
+  const { setEmail } = useSignup();
 
   const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const InputValue = e.target.value;
@@ -26,4 +26,4 @@ function EmailInput() {
   return <Input name="이메일" isError={isError} onChangeInput={onChangeInput} errorMsg={errorMsg} />;
 }
 
-export default EmailInput;
+export default SetEmailInput;

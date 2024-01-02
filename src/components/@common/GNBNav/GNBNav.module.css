@@ -35,14 +35,12 @@
 }
 
 .logoWrapper {
-
   display: flex;
   align-items: center;
   grid-area: l;
 }
 
 .searchWrapper {
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,7 +53,6 @@
 }
 
 .menuWrapper {
-
   display: flex;
   gap: 1rem;
   align-items: center;

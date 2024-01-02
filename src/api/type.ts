@@ -8,7 +8,7 @@ interface UserInfo {
 type UserType = 'employee' | 'employer';
 
 interface NewUserInfo extends UserInfo {
-  userType: UserType;
+  type: UserType;
 }
 
 interface EditUserInfo {
