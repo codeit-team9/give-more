@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './ApplyHistory.module.css';
 
 import separatorHourlyPay from '@/utils/separatorHourlyPay';
-import convertedWorkhour from '@/utils/ConvertWorkhour';
+import convertedWorkhour from '@/utils/convertWorkhour';
 import { Status } from './ApplyHistoryType';
 
 interface Props {
