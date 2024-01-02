@@ -6,7 +6,7 @@ import Footer from '@/components/@common/Footer/Footer';
 function Profile() {
   return (
     <>
-      <GNBNav userType="employee" isActive={false} />
+      <GNBNav userType="employee" />
       <div className={styles.wrapper}>
         <div className={styles.middleWrapper}>
           <p>내 프로필</p>

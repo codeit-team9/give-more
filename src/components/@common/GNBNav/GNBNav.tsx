@@ -4,14 +4,15 @@ import SearchBar from '@/components/@common/SearchBar/SearchBar';
 import GNBMenuButton from '@/components/@common/GNBMenuButton/GNBMenuButton';
 import NotificationButton from '@/components/@common/NotificationButton/NotificationButton';
 import styles from './GNBNav.module.css';
+import useNotification from '@/hooks/useNotification';
 
 interface Props {
   userType?: 'employer' | 'employee';
-  isActive: boolean;
 }
 
-function GNBNav({ userType, isActive }: Props) {
+function GNBNav({ userType }: Props) {
   const [inputValue, setInputValue] = useState('');
+  const { isActive } = useNotification();
 
   const handleInputChange = (newValue: string) => {
     setInputValue(newValue);
