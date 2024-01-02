@@ -1,5 +1,5 @@
 .wrapper {
-  font-size: 0.875rem;
+  font-size: 1.4rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -8,7 +8,7 @@
 
   /* Tablet, Desktop */
   @media (min-width: 768px) {
-    font-size: 1rem;
-    line-height: 1.25rem;
+    font-size: 1.6rem;
+    line-height: 2rem;
   }
 }
