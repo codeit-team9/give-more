@@ -20,6 +20,10 @@
   border-radius: 0.375rem;
 }
 
+.input:focus {
+  outline: 0.1rem solid var(--red-20);
+}
+
 .error {
   outline: 0.1rem solid var(--red-40);
 }
@@ -32,6 +36,7 @@
 
 .passwordWrapper {
   display: flex;
+  gap: 1.74rem;
   flex-direction: column;
 }
 

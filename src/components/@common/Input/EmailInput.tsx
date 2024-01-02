@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import Input from './Input';
+import useSignin from '@/hooks/useSignin';
 
 function EmailInput() {
   const [isError, setIsError] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
+  const { setEmail } = useSignin();
 
   const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const InputValue = e.target.value;
@@ -17,6 +19,7 @@ function EmailInput() {
     } else {
       setErrorMsg('');
       setIsError(false);
+      setEmail(InputValue);
     }
   };
 

@@ -1,0 +1,31 @@
+.wrapper {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.wrapper.filter {
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  border: 0.1rem solid var(--primary);
+  min-width: 8rem;
+  background-color: var(--white);
+  font-size: 1.4rem;
+  color: var(--primary);
+  border-radius: 0.6rem;
+}
+
+.button.confirm {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.button.confirm.filter {
+  flex-shrink: 1;
+  padding: 1.2rem 0;
+  width: 100%;
+}

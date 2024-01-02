@@ -1,0 +1,5 @@
+.hr {
+  border: none;
+  height: 0.2rem;
+  background-color: var(--gray-10);
+}

@@ -8,12 +8,11 @@ function Home() {
   const Props = {
     email: 'employee@gmail.com',
     password: 'abcd1234',
-    userType: 'employee' as const,
+    type: 'employee' as const,
   };
 
   const fetch = async () => {
-    const response = await execute(Props);
-    console.log(response);
+    await execute(Props);
   };
 
   useEffect(() => {
