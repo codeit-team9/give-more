@@ -12,8 +12,7 @@ function Home() {
   };
 
   const fetch = async () => {
-    const response = await execute(Props);
-    console.log(response);
+    await execute(Props);
   };
 
   useEffect(() => {
