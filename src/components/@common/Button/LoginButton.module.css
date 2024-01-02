@@ -31,7 +31,7 @@
   color: var(--white);
 }
 
-.notSolid {
+.notsolid {
   border: 0.1rem solid var(--primary);
   background: var(-white);
   color: var(--primary);
