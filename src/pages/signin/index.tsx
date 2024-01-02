@@ -28,7 +28,7 @@ function Signin() {
     const response: any = await execute(Props);
     if (response.status === 200) {
       setIsLogin(true);
-      setToken(response.item.token);
+      setToken(response.data.item.token);
     } else {
       setIsActive(true);
       setTimeout(() => {
