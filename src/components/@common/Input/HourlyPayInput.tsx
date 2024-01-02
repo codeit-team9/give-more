@@ -8,7 +8,7 @@ function HourlyPayInput() {
 
   return (
     <>
-      <Input name="시급*" placeholder="입력" maxLength={7} onChangeInput={onChangeInput} />
+      <Input name="시급*" maxLength={7} onChangeInput={onChangeInput} />
       <p className={styles.innerText}>원</p>
     </>
   );
