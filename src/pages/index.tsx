@@ -1,7 +1,3 @@
-import ApplyHistoryUi from '@/components/myprofile/ApplyHistoryUi';
-
-function Home() {
-  return <ApplyHistoryUi />;
-}
+function Home() {}
 
 export default Home;
