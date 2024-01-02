@@ -1,11 +1,11 @@
 import { MouseEvent, ReactNode, useRef, useState } from 'react';
-import CustomizedNoticeUI from './CustomizedNoticeUI';
+import NoticeCustomizedUI from './NoticeCustomizedUI';
 
 interface Props {
   children: ReactNode;
 }
 
-function CustomizedNotice({ children }: Props) {
+function NoticeCustomized({ children }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const [dragging, setDragging] = useState(false);
@@ -34,7 +34,7 @@ function CustomizedNotice({ children }: Props) {
   };
 
   return (
-    <CustomizedNoticeUI
+    <NoticeCustomizedUI
       containerRef={containerRef}
       onMouseDown={handleMouseDownEvent}
       onMouseLeave={() => setDragging(false)}
@@ -42,8 +42,8 @@ function CustomizedNotice({ children }: Props) {
       onMouseMove={handleMouseMoveEvent}
     >
       {children}
-    </CustomizedNoticeUI>
+    </NoticeCustomizedUI>
   );
 }
 
-export default CustomizedNotice;
+export default NoticeCustomized;

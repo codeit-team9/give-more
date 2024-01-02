@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { LegacyRef, MouseEvent, ReactNode } from 'react';
-import styles from './CustomizedNoticeUI.module.css';
+import styles from './NoticeCustomizedUI.module.css';
 
 interface Props {
   containerRef: LegacyRef<HTMLDivElement>;
@@ -11,7 +11,7 @@ interface Props {
   children: ReactNode;
 }
 
-function CustomizedNoticeUI({ containerRef, onMouseDown, onMouseLeave, onMouseUp, onMouseMove, children }: Props) {
+function NoticeCustomizedUI({ containerRef, onMouseDown, onMouseLeave, onMouseUp, onMouseMove, children }: Props) {
   return (
     <div className={styles.wrapper}>
       <div className={styles.sectionContainer}>
@@ -30,4 +30,4 @@ function CustomizedNoticeUI({ containerRef, onMouseDown, onMouseLeave, onMouseUp
     </div>
   );
 }
-export default CustomizedNoticeUI;
+export default NoticeCustomizedUI;
