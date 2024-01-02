@@ -1,10 +1,16 @@
 import { useState } from 'react';
+import Category from '@/@types/category.types';
 
-type Category = 'time' | 'pay' | 'hour' | 'shop';
+interface Props {
+  initialValue?: boolean;
+  type?: 'default' | 'sort';
+}
 
-function useDropdown(initialValue = false) {
+function useDropdown({ initialValue = false, type = 'default' }: Props) {
   const [isOpenDropdown, setIsOpenDropdown] = useState(initialValue);
   const [category, setCategory] = useState<Category>('time');
+  const isSort = type === 'sort';
+  const [selectedLocation, setSelectedLocation] = useState(isSort ? '마감임박순' : '');
 
   const toggleDropdown = () => {
     setIsOpenDropdown(!isOpenDropdown);
@@ -18,7 +24,16 @@ function useDropdown(initialValue = false) {
     setIsOpenDropdown(false);
   };
 
-  return { isOpenDropdown, toggleDropdown, openDropdown, closeDropdown, category, setCategory };
+  return {
+    isOpenDropdown,
+    toggleDropdown,
+    openDropdown,
+    closeDropdown,
+    category,
+    setCategory,
+    selectedLocation,
+    setSelectedLocation,
+  };
 }
 
 export default useDropdown;
