@@ -4,7 +4,7 @@ import styles from '@/components/@common/NotificationButton/NotificationButton.m
 
 interface Props {
   active: boolean;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 function NotificationButton({ active, onClick }: Props) {
