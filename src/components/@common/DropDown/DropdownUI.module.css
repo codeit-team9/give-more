@@ -1,0 +1,68 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 35rem;
+}
+
+.sortWrapper {
+  width: 10.5rem;
+}
+
+.title {
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+}
+
+.inputContainer {
+  position: relative;
+}
+
+.sortButton {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 3rem;
+  padding: 1.2rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--black);
+  background-color: var(--gray-10);
+  border-radius: 0.5rem;
+}
+
+.input {
+  display: flex;
+  padding: 1.6rem 2rem;
+  justify-content: flex-start;
+  align-items: center;
+  align-self: stretch;
+  border-radius: 0.6rem;
+  width: 100%;
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+  color: var(--black);
+}
+
+.sortInput {
+  font-size: 1.4rem;
+  font-weight: 700;
+  height: 3rem;
+}
+
+.arrowButton {
+  position: absolute;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
+}
+
+.sortArrowButton {
+  right: 1.2rem;
+}
+
+.upArrow {
+  transform: scaleY(-1);
+}

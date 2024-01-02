@@ -6,13 +6,13 @@ import styles from './Modal.module.css';
 
 interface Props {
   IconType?: 'alert' | 'check';
-  ButtonType?: 'confirm' | 'select' | 'login';
+  ButtonType?: 'base' | 'filter' | 'signin' | 'apply';
   text: string;
   onClick: () => void;
   onClose: () => void;
 }
 
-function Modal({ IconType = 'alert', ButtonType = 'confirm', text, onClick, onClose }: Props) {
+function Modal({ IconType = 'alert', ButtonType = 'base', text, onClick, onClose }: Props) {
   return (
     <Wrapper onClose={onClose}>
       <div className={styles.wrapper}>
