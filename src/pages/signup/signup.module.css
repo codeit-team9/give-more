@@ -2,25 +2,25 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-top: 8.69rem;
+  padding-top: 13.904rem;
 
   @media (min-width: 768px) {
-    padding-top: 17.44rem;
+    padding-top: 27.904rem;
   }
 
   @media (min-width: 1200px) {
-    padding-top: 19.5rem;
+    padding-top: 31.2rem;
   }
 }
 
 .input {
   display: flex;
-  gap: 1.74rem;
+  gap: 2.784rem;
   align-items: center;
   flex-direction: column;
 
-  padding-top: 2.5rem;
-  padding-bottom: 1rem;
+  padding-top: 4rem;
+  padding-bottom: 1.6rem;
 }
 
 .link {
