@@ -12,7 +12,7 @@ async function postShopsNotice(Props: Props) {
     const response = await axiosInstance.post(`/shops/${Props.url.shopId}/notices`, Props.data, {
       headers: { Authorization: `Bearer ${Props.authorization?.token}` },
     });
-    return response.data;
+    return response;
   } catch (error) {
     return error;
   }

@@ -11,7 +11,7 @@ async function putNotification(props: Props) {
     const response = await axiosInstance.put(`/users/${props.url.userId}/alerts/${props.url.alertId}`, null, {
       headers: { Authorization: `Bearer ${props.authorization?.token}` },
     });
-    return response.data;
+    return response;
   } catch (error) {
     return error;
   }

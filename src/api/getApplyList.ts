@@ -11,7 +11,7 @@ async function getApplyList(Props: Props) {
     const response = await axiosInstance.get(`/shops/${Props.url.shopId}/notices/${Props.url.noticeId}/applications`, {
       params: Props.params,
     });
-    return response.data;
+    return response;
   } catch (error) {
     return error;
   }

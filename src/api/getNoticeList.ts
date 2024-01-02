@@ -26,7 +26,7 @@ async function getNoticeList(Props: Props) {
         return params.toString();
       },
     });
-    return response.data;
+    return response;
   } catch (error) {
     return error;
   }

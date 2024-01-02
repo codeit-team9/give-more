@@ -11,7 +11,7 @@ async function getShopsNoticeList(Props: Props) {
     const response = await axiosInstance.get(`/shops/${Props.url.shopId}/notices`, {
       params: Props.params,
     });
-    return response.data;
+    return response;
   } catch (error) {
     return error;
   }

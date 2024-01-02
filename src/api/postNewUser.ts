@@ -4,7 +4,7 @@ import { NewUserInfo } from './type';
 async function postNewUser(Props: NewUserInfo) {
   try {
     const response = await axiosInstance.post('/users', Props);
-    return response.data;
+    return response;
   } catch (error) {
     return error;
   }

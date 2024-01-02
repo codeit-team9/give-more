@@ -4,7 +4,7 @@ import { ShopId } from './type';
 async function getShop(Props: ShopId) {
   try {
     const response = await axiosInstance.get(`/shops/${Props.shopId}`);
-    return response.data;
+    return response;
   } catch (error) {
     return error;
   }

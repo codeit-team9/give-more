@@ -11,7 +11,7 @@ async function getUserApplyList(Props: Props) {
     const response = await axiosInstance.get(`/users/${Props.url.userId}/applications`, {
       headers: { Authorization: `Bearer ${Props.authorization?.token}` },
     });
-    return response.data;
+    return response;
   } catch (error) {
     return error;
   }

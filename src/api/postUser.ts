@@ -4,7 +4,7 @@ import { UserInfo } from './type';
 async function postUser(Props: UserInfo) {
   try {
     const response = await axiosInstance.post('/token', Props);
-    return response.data;
+    return response;
   } catch (error) {
     return error;
   }

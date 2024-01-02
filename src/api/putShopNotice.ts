@@ -21,7 +21,7 @@ async function putShopNotice(props: Props) {
         headers: { Authorization: `Bearer ${props.authorization?.token}` },
       },
     );
-    return response.data;
+    return response;
   } catch (error) {
     return error;
   }
