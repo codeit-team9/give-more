@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  gap: 1.6rem;
+  flex-direction: column;
+}
+
+.topContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardContainer {
+  display: flex;
+  gap: 0.8rem;
+  flex-direction: column;
+}

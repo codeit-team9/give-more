@@ -1,11 +1,23 @@
 .wrapper {
-  width: 5.10238rem;
+  width: 8.163808rem;
 
   @media (min-width: 768px) {
-    width: 6.80319rem;
+    width: 10.885104rem;
   }
 
   @media (min-width: 1200px) {
-    width: 6.80319rem;
+    width: 10.885104rem;
+  }
+}
+
+.login {
+  width: 20.8rem;
+
+  @media (min-width: 768px) {
+    width: 24.8rem;
+  }
+
+  @media (min-width: 1200px) {
+    width: 24.8rem;
   }
 }
