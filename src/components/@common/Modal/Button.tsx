@@ -2,7 +2,7 @@ import classnames from 'classnames';
 import styles from './Button.module.css';
 
 interface Props {
-  type: 'base' | 'signin' | 'filter';
+  type: 'base' | 'signin' | 'filter' | 'apply';
   onClick: () => void;
   onClose?: () => void;
   onReset?: () => void;
@@ -33,6 +33,8 @@ function Button({ type, onClick, onClose, onReset }: Props) {
         return ['취소', '로그인 하기'];
       case 'filter':
         return ['초기화', '적용하기'];
+      case 'apply':
+        return ['아니오', '예'];
       default:
         return ['확인'];
     }
@@ -43,6 +45,7 @@ function Button({ type, onClick, onClose, onReset }: Props) {
   const isBaseType = type === 'base';
   const isSignInType = type === 'signin';
   const isFilterType = type === 'filter';
+  const isApplyType = type === 'apply';
 
   let cancelButtonText = cancelText;
   let confirmButtonText = confirmText;
@@ -50,6 +53,11 @@ function Button({ type, onClick, onClose, onReset }: Props) {
   if (isSignInType) {
     cancelButtonText = '취소';
     confirmButtonText = '로그인 하기';
+  }
+
+  if (isApplyType) {
+    cancelButtonText = '아니요';
+    confirmButtonText = '예';
   }
 
   return isBaseType ? (
