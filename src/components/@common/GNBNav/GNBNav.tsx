@@ -20,7 +20,7 @@ function GNBNav({ userType, isActive }: Props) {
   return (
     <div className={styles.wrapper}>
       <div className={styles.logoWrapper}>
-        <LogoButton />
+        <LogoButton isSign={false} />
       </div>
       <div className={styles.searchWrapper}>
         <SearchBar value={inputValue} onChange={handleInputChange} />
