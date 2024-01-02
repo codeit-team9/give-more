@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import useAsync from '@/hooks/useAsync';
 import getNoticeList from '@/api/getNoticeList';
 import convertDate from '@/utils/convertDate';
+import { Address } from '@/@types/address.types';
 
 function Home() {
   const { execute } = useAsync(getNoticeList);
@@ -11,7 +12,7 @@ function Home() {
     params: {
       offset: 0,
       limit: 100,
-      address: '',
+      address: [] as Address[],
       startsAtGte: convertDate(currentDate),
       hourlyPayGte: 0,
       sort: 'time' as const,
@@ -19,8 +20,7 @@ function Home() {
   };
 
   const fetch = async () => {
-    const response = await execute(Props);
-    console.log(response);
+    await execute(Props);
   };
 
   useEffect(() => {

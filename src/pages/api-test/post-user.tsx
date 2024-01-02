@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import useAsync from '@/hooks/useAsync';
-import postNewUser from '@/api/postUser';
+import postUser from '@/api/postUser';
 
 function Home() {
-  const { execute } = useAsync(postNewUser);
+  const { execute } = useAsync(postUser);
 
   const Props = {
     email: 'employer@gmail.com',
@@ -11,8 +11,7 @@ function Home() {
   };
 
   const fetch = async () => {
-    const response = await execute(Props);
-    console.log(response);
+    await execute(Props);
   };
 
   useEffect(() => {

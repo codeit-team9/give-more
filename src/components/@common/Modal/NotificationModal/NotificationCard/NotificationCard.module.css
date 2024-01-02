@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  gap: 0.4rem;
+  flex-direction: column;
+  padding: 1.6rem 1.2rem;
+  border: 0.1rem solid var(--gray-20);
+  background-color: var(--white);
+  border-radius: 0.5rem;
+}
+
+.description {
+  font-size: 1.4rem;
+  color: var(--black);
+  word-break: break-all;
+}
+
+.timeDiff {
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  color: var(--gray-40);
+}
+
+.accept {
+  color: var(--blue-20);
+}
+
+.rejected {
+  color: var(--red-40);
+}

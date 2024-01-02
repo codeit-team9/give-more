@@ -1,3 +1,5 @@
+import { Address } from '@/@types/address.types';
+
 interface UserInfo {
   email: string;
   password: string;
@@ -60,7 +62,7 @@ interface Pagenation {
 type SortType = 'time' | 'pay' | 'hour' | 'shop';
 
 interface NoticeSearch extends Pagenation {
-  address?: string;
+  address?: Address[];
   keyword?: string;
   startsAtGte?: string;
   hourlyPayGte?: number;
@@ -72,6 +74,15 @@ interface NewNoticeData {
   startsAt: string;
   workhour: number;
   description: string;
+}
+
+interface FilterData {
+  offset: number;
+  limit: number;
+  address: string;
+  startsAtGte: string;
+  hourlyPayGte: number;
+  sort: SortType;
 }
 
 export type {
@@ -87,6 +98,8 @@ export type {
   NotificationData,
   NewShopData,
   Pagenation,
+  SortType,
   NoticeSearch,
   NewNoticeData,
+  FilterData,
 };

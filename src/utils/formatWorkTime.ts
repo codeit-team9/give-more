@@ -1,4 +1,5 @@
 interface Props {
+  type: 'notice' | 'notification';
   startsAt: string;
   workHour: number;
 }
@@ -20,14 +21,16 @@ function formatTime(date: Date): string {
   return `${hours}:${minutes}`;
 }
 
-function formatWorkTime({ startsAt, workHour }: Props) {
+function formatWorkTime({ type, startsAt, workHour }: Props) {
   const startDate: Date = new Date(startsAt);
   const endDate: Date = new Date(startDate.getTime() + workHour * 60 * 60 * 1000);
 
   const formattedStartDate: string = formatDate(startDate);
   const formattedEndDate: string = formatTime(endDate);
 
-  return `${formattedStartDate}~${formattedEndDate} (${workHour}시간)`;
+  return type === 'notice'
+    ? `${formattedStartDate}~${formattedEndDate} (${workHour}시간)`
+    : `${formattedStartDate}~${formattedEndDate}`;
 }
 
 export default formatWorkTime;
