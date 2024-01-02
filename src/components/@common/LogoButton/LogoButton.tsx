@@ -2,9 +2,13 @@ import Link from 'next/link';
 import LogoIcon from '@/assets/images/logo_icon.svg';
 import styles from './LogoButton.module.css';
 
-function LogoButton() {
+interface Props {
+  isSign: boolean;
+}
+
+function LogoButton({ isSign }: Props) {
   return (
-    <div className={styles.wrapper}>
+    <div className={isSign ? styles.login : styles.wrapper}>
       <Link href="/">
         <LogoIcon />
       </Link>

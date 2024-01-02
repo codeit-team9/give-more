@@ -1,16 +1,16 @@
 .wrapper {
   display: flex;
-  flex-direction: column;
   gap: 0.8rem;
+  flex-direction: column;
+
+  position: relative;
 
   width: 100%;
   height: 15.3rem;
   font-size: 1.6rem;
-
-  position: relative;
 }
 
 .textarea {
-  width: 100%;
   padding: 1.6rem 2rem;
+  width: 100%;
 }
