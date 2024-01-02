@@ -1,0 +1,53 @@
+.wrapper {
+  display: flex;
+  gap: 1.2rem;
+  flex-direction: column;
+}
+
+.name {
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+  color: var(--black);
+}
+
+.addressContainer {
+  display: grid;
+  gap: 2rem;
+  padding: 1.6rem 2.4rem;
+  border: 0.1rem solid var(--gray-20);
+  overflow-y: scroll;
+  height: 25.8rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.address {
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  color: var(--black);
+}
+
+.addressContainer::-webkit-scrollbar {
+  width: 0.8rem;
+}
+
+.addressContainer::-webkit-scrollbar-thumb {
+  border: 0.2rem solid transparent;
+  background-color: hsl(0, 0%, 67%);
+  background-clip: padding-box;
+  border-radius: 1rem;
+}
+
+.addressContainer::-webkit-scrollbar-thumb:hover {
+  background-color: var(--red-30);
+}
+
+.addressContainer::-webkit-scrollbar-track {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.addressBadgeContainer {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}

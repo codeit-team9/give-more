@@ -4,10 +4,15 @@ import styles from '@/components/@common/NotificationButton/NotificationButton.m
 
 interface Props {
   active: boolean;
+  onClick: () => void;
 }
 
-function NotificationButton({ active }: Props) {
-  return <div className={styles.wrapper}>{active ? <InactiveIcon /> : <ActiveIcon />}</div>;
+function NotificationButton({ active, onClick }: Props) {
+  return (
+    <button className={styles.wrapper} type="button" onClick={onClick}>
+      {active ? <InactiveIcon /> : <ActiveIcon />}
+    </button>
+  );
 }
 
 export default NotificationButton;

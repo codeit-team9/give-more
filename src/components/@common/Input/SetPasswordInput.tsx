@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Input.module.css';
 import Input from './Input';
+import useSignup from '@/hooks/useSignup';
 
 function SetPasswordInput() {
   const [isError, setIsError] = useState(false);
@@ -8,6 +9,7 @@ function SetPasswordInput() {
   const [password, setPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
   const [confirmErrorMsg, setConfirmErrorMsg] = useState('');
+  const { setPassword: setGlobalPassword } = useSignup();
 
   const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
@@ -22,6 +24,7 @@ function SetPasswordInput() {
     } else {
       setErrorMsg('');
       setIsError(false);
+      setGlobalPassword(InputValue);
     }
   };
 

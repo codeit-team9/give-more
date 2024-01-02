@@ -1,10 +1,13 @@
 .wrapper {
   display: grid;
   flex-shrink: 0;
-  padding: 0.63rem 1.25rem;
+  padding: 1rem 2rem;
 
-  width: 23.4375rem;
-  height: 6.375rem;
+  position: fixed;
+  top: 0;
+
+  width: 100%;
+  height: 10.2rem;
   background: var(--julge-white);
   grid-template-columns: 1fr 1fr;
   grid-template-areas:
@@ -13,13 +16,13 @@
 
   @media (min-width: 768px) {
     display: flex;
+    gap: 3.51rem;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     flex-shrink: 0;
-    padding: 2rem 0.94rem;
 
-    width: 46.5rem;
-    height: 4.375rem;
+    width: 100%;
+    height: 10.2rem;
   }
 
   @media (min-width: 1200px) {
@@ -27,37 +30,32 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    padding: 13rem 1.41rem;
 
-    width: 90rem;
-    height: 4.375rem;
+    width: 100%;
+    height: 10.2rem;
   }
 }
 
 .logoWrapper {
-
   display: flex;
   align-items: center;
   grid-area: l;
 }
 
 .searchWrapper {
-
   display: flex;
   align-items: center;
   justify-content: center;
   grid-area: s;
 
   @media (min-width: 1200px) {
-    padding-right: 13.19rem;
-    padding-left: 2.5rem;
+    padding-right: 19.6rem;
   }
 }
 
 .menuWrapper {
-
   display: flex;
-  gap: 1rem;
+  gap: 1.6rem;
   align-items: center;
   justify-content: space-between;
   grid-area: m;

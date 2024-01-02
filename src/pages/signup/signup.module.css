@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 13.904rem;
+
+  @media (min-width: 768px) {
+    padding-top: 27.904rem;
+  }
+
+  @media (min-width: 1200px) {
+    padding-top: 31.2rem;
+  }
+}
+
+.input {
+  display: flex;
+  gap: 2.784rem;
+  align-items: center;
+  flex-direction: column;
+
+  padding-top: 4rem;
+  padding-bottom: 1.6rem;
+}
+
+.link {
+  color: #5534da;
+  text-decoration-line: underline;
+}
