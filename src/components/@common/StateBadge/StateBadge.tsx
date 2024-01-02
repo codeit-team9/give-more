@@ -4,32 +4,18 @@ interface Props {
   type: 'accept' | 'reject' | 'pending';
 }
 
-function StateBadge({ type }: Props) {
-  let badgeClassName;
-  let badgeText;
+const STATUS_INFO = {
+  accept: { className: styles.accept, text: '승인 완료' },
+  reject: { className: styles.reject, text: '거절' },
+  pending: { className: styles.pending, text: '대기중' },
+};
 
-  switch (type) {
-    case 'accept':
-      badgeClassName = styles.accept;
-      badgeText = '승인 완료';
-      break;
-    case 'reject':
-      badgeClassName = styles.reject;
-      badgeText = '거절';
-      break;
-    case 'pending':
-      badgeClassName = styles.pending;
-      badgeText = '대기중';
-      break;
-    default:
-      badgeClassName = '';
-      badgeText = '';
-      break;
-  }
+function StateBadge({ type }: Props) {
+  const { className, text } = STATUS_INFO[type] || { className: '', text: '' };
 
   return (
     <div className={styles.wrapper}>
-      <div className={badgeClassName}>{badgeText}</div>
+      <div className={className}>{text}</div>
     </div>
   );
 }
