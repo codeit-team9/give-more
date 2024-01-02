@@ -1,3 +1,5 @@
+import { Address } from '@/@types/address.types';
+
 interface UserInfo {
   email: string;
   password: string;
@@ -60,7 +62,7 @@ interface Pagenation {
 type SortType = 'time' | 'pay' | 'hour' | 'shop';
 
 interface NoticeSearch extends Pagenation {
-  address?: string;
+  address?: Address[];
   keyword?: string;
   startsAtGte?: string;
   hourlyPayGte?: number;

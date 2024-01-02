@@ -1,10 +1,13 @@
+.wrapper {
+  display: flex;
+  gap: 1.2rem;
+  flex-direction: column;
+}
+
 .name {
   font-size: 1.6rem;
   line-height: 2.6rem;
   color: var(--black);
-}
-
-.container {
 }
 
 .addressContainer {
@@ -41,4 +44,10 @@
 .addressContainer::-webkit-scrollbar-track {
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+.addressBadgeContainer {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
 }

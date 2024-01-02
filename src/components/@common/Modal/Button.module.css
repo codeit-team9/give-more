@@ -25,6 +25,7 @@
 }
 
 .button.confirm.filter {
+  flex-shrink: 1;
   padding: 1.2rem 0;
-  width: 26rem;
+  width: 100%;
 }

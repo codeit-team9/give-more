@@ -10,16 +10,17 @@ interface Props {
 
 function Button({ type, onClick, onClose, onReset }: Props) {
   const handleCloseModal = () => {
+    if (type === 'filter' && onReset) {
+      onReset();
+      return;
+    }
+
     if (onClose) {
       onClose();
     }
   };
 
   const handleConfirm = () => {
-    if (type === 'filter' && onReset) {
-      onReset();
-    }
-
     if (onClose) {
       onClick();
       onClose();

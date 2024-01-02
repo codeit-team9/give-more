@@ -69,6 +69,7 @@
   align-items: flex-start;
   flex-direction: column;
   padding: 2.4rem 2rem;
+  overflow-y: scroll;
   position: fixed;
   top: 0;
   left: 0;
@@ -96,10 +97,12 @@
   }
 }
 
+.filterContainer::-webkit-scrollbar,
 .notificationContainer::-webkit-scrollbar {
   width: 1.3rem;
 }
 
+.filterContainer::-webkit-scrollbar-thumb,
 .notificationContainer::-webkit-scrollbar-thumb {
   border: 0.2rem solid transparent;
   background-color: hsl(0, 0%, 67%);
@@ -107,10 +110,12 @@
   border-radius: 1rem;
 }
 
+.filterContainer::-webkit-scrollbar-thumb:hover,
 .notificationContainer::-webkit-scrollbar-thumb:hover {
   background-color: var(--red-30);
 }
 
+.filterContainer::-webkit-scrollbar-track,
 .notificationContainer::-webkit-scrollbar-track {
   margin-top: 1rem;
   margin-bottom: 1rem;
