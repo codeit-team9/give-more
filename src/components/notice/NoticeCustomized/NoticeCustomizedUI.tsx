@@ -8,10 +8,19 @@ interface Props {
   onMouseLeave: () => void;
   onMouseUp: () => void;
   onMouseMove: (e: MouseEvent<HTMLDivElement>) => void;
+  onMouseEnter: () => void;
   children: ReactNode;
 }
 
-function NoticeCustomizedUI({ containerRef, onMouseDown, onMouseLeave, onMouseUp, onMouseMove, children }: Props) {
+function NoticeCustomizedUI({
+  containerRef,
+  onMouseDown,
+  onMouseLeave,
+  onMouseUp,
+  onMouseMove,
+  onMouseEnter,
+  children,
+}: Props) {
   return (
     <div className={styles.wrapper}>
       <div className={styles.sectionContainer}>
@@ -24,6 +33,7 @@ function NoticeCustomizedUI({ containerRef, onMouseDown, onMouseLeave, onMouseUp
         onMouseLeave={onMouseLeave}
         onMouseUp={onMouseUp}
         onMouseMove={onMouseMove}
+        onMouseEnter={onMouseEnter}
       >
         {children}
       </div>
