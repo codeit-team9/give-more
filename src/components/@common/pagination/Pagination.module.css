@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.pageNumberButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+  width: 4rem;
+  height: 4rem;
+  background-color: var(--white);
+  font-size: 1.4rem;
+  color: var(--black);
+}
+
+.active {
+  background-color: var(--red-30);
+  color: var(--white);
+  border-radius: 0.4rem;
+}
