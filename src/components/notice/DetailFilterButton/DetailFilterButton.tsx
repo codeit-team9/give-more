@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import styles from './DetailFilterButton.module.css';
 
 interface Props {
@@ -6,11 +7,15 @@ interface Props {
 }
 
 function DetailFilterButton({ count, onClick }: Props) {
-  const countText = count ? ` (${count})` : '';
+  const [filteredCount, setFilteredCount] = useState<number | null>(count);
+
+  useEffect(() => {
+    setFilteredCount(count);
+  }, [count]);
 
   return (
     <button className={styles.button} type="button" onClick={onClick}>
-      상세 필터{countText}
+      상세 필터{filteredCount !== null && filteredCount > 0 && ` (${filteredCount})`}
     </button>
   );
 }
