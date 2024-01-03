@@ -2,8 +2,6 @@
   display: grid;
   padding: 3.2rem 2rem 1.6rem 2rem;
 
-  position: fixed;
-  bottom: 0;
   width: 100%;
 
   background: var(--gray-10);
