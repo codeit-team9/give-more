@@ -3,12 +3,13 @@
   flex-shrink: 0;
   padding: 1rem 2rem;
 
-  position: fixed;
+  position: sticky;
   top: 0;
+  z-index: 10;
 
   width: 100%;
   height: 10.2rem;
-  background: var(--julge-white);
+  background: var(--white);
   grid-template-columns: 1fr 1fr;
   grid-template-areas:
     'l m'
@@ -22,7 +23,7 @@
     flex-shrink: 0;
 
     width: 100%;
-    height: 10.2rem;
+    height: 7rem;
   }
 
   @media (min-width: 1200px) {
@@ -32,7 +33,7 @@
     flex-shrink: 0;
 
     width: 100%;
-    height: 10.2rem;
+    height: 7rem;
   }
 }
 
@@ -57,6 +58,6 @@
   display: flex;
   gap: 1.6rem;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   grid-area: m;
 }
