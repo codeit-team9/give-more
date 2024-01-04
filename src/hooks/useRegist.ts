@@ -1,4 +1,4 @@
-import { create } from 'zustand';
+import { useState } from 'react';
 
 type ADDRESS =
   | ''
@@ -39,15 +39,22 @@ interface RegistState {
   setBio: (bio: string) => void;
 }
 
-const useRegist = create<RegistState>((set) => ({
-  name: '',
-  setName: (name) => set({ name }),
-  phone: '',
-  setPhone: (phone) => set({ phone }),
-  address: '',
-  setAddress: (address) => set({ address }),
-  bio: '',
-  setBio: (bio) => set({ bio }),
-}));
+const useRegist = (): RegistState => {
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [address, setAddress] = useState<ADDRESS>('');
+  const [bio, setBio] = useState('');
+
+  return {
+    name,
+    setName,
+    phone,
+    setPhone,
+    address,
+    setAddress,
+    bio,
+    setBio,
+  };
+};
 
 export default useRegist;
