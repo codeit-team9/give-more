@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import Input from './Input';
 import styles from './Input.module.css';
 
@@ -7,10 +8,10 @@ function HourlyPayInput() {
   };
 
   return (
-    <>
+    <div className={classNames(styles.positionWrapper, styles.hourlyPay)}>
       <Input name="시급*" maxLength={7} onChangeInput={onChangeInput} />
       <p className={styles.innerText}>원</p>
-    </>
+    </div>
   );
 }
 

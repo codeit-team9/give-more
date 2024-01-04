@@ -1,4 +1,5 @@
 import { ChangeEvent } from 'react';
+import classNames from 'classnames';
 import convertDate from '@/utils/convertDate';
 import styles from './DateInput.module.css';
 
@@ -15,14 +16,17 @@ function DateInput({ startsAt, setStartsAt }: Props) {
   };
 
   return (
-    <input
-      className={styles.input}
-      placeholder="선택"
-      type="datetime-local"
-      value={startsAt.slice(0, 16)}
-      min={minDateTime}
-      onChange={handleChange}
-    />
+    <div className={classNames(styles.wrapper, styles.date)}>
+      <p className={styles.name}>시작 일시</p>
+      <input
+        className={styles.input}
+        placeholder="선택"
+        type="datetime-local"
+        value={startsAt.slice(0, 16)}
+        min={minDateTime}
+        onChange={handleChange}
+      />
+    </div>
   );
 }
 

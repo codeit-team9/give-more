@@ -1,3 +1,23 @@
+.wrapper {
+  width: 35rem;
+
+  @media (min-width: 768px) {
+    width: 33rem;
+  }
+
+  @media (min-width: 1200px) {
+    width: 30.8rem;
+  }
+}
+
+.name {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.6rem;
+
+  margin-bottom: 0.8rem;
+}
+
 .input {
   display: flex;
   gap: 1rem;
