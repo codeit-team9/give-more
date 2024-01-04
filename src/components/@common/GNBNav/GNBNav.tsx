@@ -25,16 +25,19 @@ function GNBNav({ userType }: Props) {
 
   const handleSignOut = () => {
     localStorage.removeItem('token');
+    setToken('');
+    window.location.href = '/';
   };
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const item = localStorage.getItem('token');
+
       if (item) {
         setToken(item);
       }
     }
-  }, [token]);
+  }, [userType, token]);
 
   return (
     <div className={styles.wrapper}>
@@ -47,9 +50,7 @@ function GNBNav({ userType }: Props) {
       {userType === 'employer' || userType === 'employee' ? (
         <div className={styles.menuWrapper}>
           <GNBMenuButton type={userType} />
-          <button type="button" onClick={handleSignOut}>
-            <GNBMenuButton type="signOut" />
-          </button>
+          <GNBMenuButton type="signOut" onClick={handleSignOut} />
           <div className={styles.NotificationButtonContainer}>
             <NotificationButton active={isActive} onClick={() => toggleModal()} />
             {/* {isOpenModal && <NotificationModal type="notification" onClose={closeModal} count={0} data={undefined} />} */}

@@ -34,7 +34,7 @@ function NoticeDetailPage() {
     if (shopId && noticeId) {
       fetchNotice();
     }
-  }, [shopId, noticeId]);
+  }, [shopId, noticeId, token]);
 
   const userDataFetch = async () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

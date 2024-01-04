@@ -49,7 +49,7 @@ interface OwnerRegistState {
 
 const useOwnerRegist = (): OwnerRegistState => {
   const [name, setName] = useState('');
-  const [type, setType] = useState<STORE_TYPE>('');
+  const [type, setType] = useState<STORETYPE>('');
   const [address, setAddress] = useState<ADDRESS>('');
   const [specAddress, setSpecAddress] = useState('');
   const [url, setURL] = useState('');
