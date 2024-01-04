@@ -27,6 +27,7 @@
 }
 
 .link {
+  width: 35rem;
   color: #5534da;
   text-decoration-line: underline;
 }

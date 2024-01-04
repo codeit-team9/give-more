@@ -17,6 +17,7 @@ import useAsync from '@/hooks/useAsync';
 import extractUserIdFromJWT from '@/utils/extractUserIdFromJWT';
 import putUser from '@/api/putUser';
 import useLoginInfo from '@/hooks/useLoginInfo';
+import useUserInfo from '@/hooks/useUserInfo';
 
 function Registration() {
   const [isRegist, setIsRegist] = useState(false);
@@ -28,6 +29,7 @@ function Registration() {
     useDropdown({});
   const { token } = useLoginInfo();
   const router = useRouter();
+  const { name: userName, phone: userPhone, bio: userBio } = useUserInfo();
 
   const Props = {
     authorization: { token },
@@ -104,14 +106,14 @@ function Registration() {
           </div>
           <div className={styles.inputWrapper}>
             <div className={styles.nameInput}>
-              <Input name="이름*" onChangeInput={onChangeNameInput} />
+              <Input name="이름*" onChangeInput={onChangeNameInput} placeholder={userName === '' ? '입력' : userName} />
             </div>
             <div className={styles.phoneInput}>
               <Input
-                placeholder="-를 제외한 전화번호를 입력해 주세요."
                 name="연락처*"
                 maxLength={13}
                 onChangeInput={onChangePhoneInput}
+                placeholder={userName === '' ? '-를 제외한 전화번호를 입력해 주세요.' : userPhone}
               />
             </div>
             <div className={styles.dropdown}>
@@ -127,7 +129,7 @@ function Registration() {
               />
             </div>
             <div className={styles.textarea}>
-              <Textarea name="소개" onChangeInput={onChangeTextarea} />
+              <Textarea name="소개" onChangeInput={onChangeTextarea} placeholder={userBio === '' ? '입력' : userBio} />
             </div>
           </div>
           <div className={styles.buttonWrapper}>

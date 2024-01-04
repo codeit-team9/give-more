@@ -65,7 +65,7 @@ function SignUp() {
     if (isInput && isPassword) {
       fetch();
     } else {
-      setMessage('modified');
+      setMessage('error');
       setIsActive(true);
       setTimeout(() => {
         setIsActive(false);
