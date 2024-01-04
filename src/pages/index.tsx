@@ -18,11 +18,17 @@ import DetailFilterButton from '@/components/notice/DetailFilterButton/DetailFil
 import NoticeCustomized from '@/components/notice/NoticeCustomized/NoticeCustomized';
 import Footer from '@/components/@common/Footer/Footer';
 import styles from './NoticePage.module.css';
+import getUser from '@/api/getUser';
+import extractUserIdFromJWT from '@/utils/extractUserIdFromJWT';
+import { UserData } from '@/@types/user.types';
 
 function NoticePage() {
   const currentDate = new Date();
+  const [token, setToken] = useState<string>('');
   const [notice, setNotice] = useState<NoticeData>();
+  const [user, setUser] = useState<UserData>();
   const { execute } = useAsync(getNoticeList);
+  const { execute: getUserExecute } = useAsync(getUser);
   const { currentPage, totalItems, updateCurrentPage, updateTotalItems } = usePagination({});
   const { isOpenModal, toggleModal, closeModal } = useModal();
   const {
@@ -71,6 +77,27 @@ function NoticePage() {
     setLimit(6);
   }, [currentPage, category]);
 
+  const userDataFetch = async () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const response: any = await getUserExecute({ userId: extractUserIdFromJWT(token) });
+    setUser(response.data);
+  };
+
+  useEffect(() => {
+    if (token) {
+      userDataFetch();
+    }
+  }, [token]);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const item = localStorage.getItem('token');
+      if (item) {
+        setToken(item);
+      }
+    }
+  }, []);
+
   const handlePageChange = (pageNumber: number) => {
     updateCurrentPage(pageNumber);
   };
@@ -79,8 +106,8 @@ function NoticePage() {
 
   return (
     <div className={styles.wrapper}>
-      <GNBNav />
-      <NoticeCustomized address={['서울시 종로구']} limit={10} />
+      <GNBNav userType={user?.item.type} />
+      <NoticeCustomized limit={10} />
       <div className={styles.noticeEntireContainer}>
         <NoticeEntire items={notice?.items}>
           <div className={styles.filterContainer}>

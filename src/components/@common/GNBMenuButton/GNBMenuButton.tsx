@@ -15,7 +15,7 @@ function GNBMenuButton({ type }: Props) {
       content = '내 가게';
       break;
     case 'employee':
-      link = '/';
+      link = '/profile';
       content = '내 프로필';
       break;
     case 'signOut':

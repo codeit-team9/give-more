@@ -1,9 +1,9 @@
 import Wrapper from '@/components/@common/Modal/Wrapper';
 import Title from '@/components/@common/Modal/Title';
-import styles from './NotificationModal.module.css';
 import NotificationList from './NotificationList/NotificationList';
 import { Items } from '@/@types/notification.type';
 import CloseIcon from '@/assets/images/close_icon.svg';
+import styles from './NotificationModal.module.css';
 
 interface Props {
   type: 'notification';
@@ -22,9 +22,7 @@ function NotificationModal({ type, count, data, onClose }: Props) {
             <CloseIcon />
           </button>
         </div>
-        <div className={styles.cardContainer}>
-          <NotificationList data={data} />
-        </div>
+        <div className={styles.cardContainer}>{data && <NotificationList data={data} />}</div>
       </div>
     </Wrapper>
   );

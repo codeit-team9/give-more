@@ -10,11 +10,17 @@ import { addNewNotice } from '@/utils/noticeRecentViewed';
 import NoticeRecentViewed from '@/components/notice/NoticeRecentViewed/NoticeRecentViewed';
 import styles from './NoticeDetail.module.css';
 import Footer from '@/components/@common/Footer/Footer';
+import { UserData } from '@/@types/user.types';
+import getUser from '@/api/getUser';
+import extractUserIdFromJWT from '@/utils/extractUserIdFromJWT';
 
 function NoticeDetailPage() {
   const router = useRouter();
+  const [token, setToken] = useState<string>('');
   const { execute } = useAsync(getShopNotice);
+  const { execute: getUserExecute } = useAsync(getUser);
   const [notice, setNotice] = useState<Notice | undefined>();
+  const [user, setUser] = useState<UserData>();
 
   const { shopId, noticeId } = router.query;
 
@@ -25,17 +31,38 @@ function NoticeDetailPage() {
   };
 
   useEffect(() => {
-    if (!notice && shopId && noticeId) {
+    if (shopId && noticeId) {
       fetchNotice();
     }
-    if (notice) {
-      addNewNotice(notice);
+  }, [shopId, noticeId]);
+
+  const userDataFetch = async () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const response: any = await getUserExecute({ userId: extractUserIdFromJWT(token) });
+    setUser(response.data);
+  };
+
+  useEffect(() => {
+    if (token) {
+      userDataFetch();
     }
-  }, [notice, shopId, noticeId]);
+  }, [token]);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const item = localStorage.getItem('token');
+
+      if (item) {
+        setToken(item);
+      }
+    }
+  }, []);
 
   if (!notice) {
     return null;
   }
+
+  addNewNotice(notice);
 
   const {
     closed,
@@ -58,9 +85,11 @@ function NoticeDetailPage() {
 
   return (
     <div className={styles.wrapper}>
-      <GNBNav />
+      <GNBNav userType={user?.item.type} />
       <NoticeInfo
         isClosed={closed}
+        shopId={shopId as string}
+        noticeId={noticeId as string}
         applyStatus={currentUserApplication?.item.status}
         category={category}
         shopName={shopName}
@@ -72,6 +101,7 @@ function NoticeDetailPage() {
         noticeDescription={noticeDescription}
         startsAt={startsAt}
         workHour={workhour}
+        onApply={fetchNotice}
       />
       <NoticeRecentViewed />
       <Footer />

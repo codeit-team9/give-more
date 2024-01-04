@@ -2,12 +2,14 @@
   display: flex;
   gap: 1.6rem;
   flex-direction: column;
+  width: 100%;
 }
 
 .topContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 }
 
 .cardContainer {

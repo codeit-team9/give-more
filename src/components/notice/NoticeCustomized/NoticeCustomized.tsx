@@ -5,14 +5,12 @@ import convertDate from '@/utils/convertDate';
 import useAsync from '@/hooks/useAsync';
 import getNoticeList from '@/api/getNoticeList';
 import { NoticeData } from '@/@types/notice.types';
-import { Address } from '@/@types/address.types';
 
 interface Props {
-  address: Address[];
   limit: number;
 }
 
-function NoticeCustomized({ address = ['서울시 종로구'], limit = 10 }: Props) {
+function NoticeCustomized({ limit = 10 }: Props) {
   const currentDate = new Date();
   const containerRef = useRef<HTMLDivElement>(null);
   const [dragging, setDragging] = useState(false);
@@ -26,7 +24,7 @@ function NoticeCustomized({ address = ['서울시 종로구'], limit = 10 }: Pro
     params: {
       offset: 0,
       limit,
-      address,
+      address: [],
       startsAtGte: convertDate(currentDate),
       hourlyPayGte: 0,
       sort: 'pay' as const,

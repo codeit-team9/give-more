@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
 import HourlyPayBadge from '../HourlyPayBadge/HourlyPayBadge';
@@ -9,9 +10,15 @@ import PrimaryButton from '@/components/@common/Button/PrimaryButton';
 import { Status } from '@/@types/notice.types';
 import NoticeDescription from './NoticeDescription/NoticeDescription';
 import styles from './NoticeInfo.module.css';
+import SecondaryButton from '@/components/@common/Button/SecondaryButton';
+import InActiveButton from '@/components/@common/Button/InActiveButton';
+import useAsync from '@/hooks/useAsync';
+import postApply from '@/api/postApply';
 
 interface Props {
   isClosed: boolean;
+  shopId: string | undefined;
+  noticeId: string | undefined;
   applyStatus?: Status;
   category: string;
   shopName: string;
@@ -23,10 +30,13 @@ interface Props {
   noticeDescription: string;
   startsAt: string;
   workHour: number;
+  onApply: () => void;
 }
 
 function NoticeInfo({
   isClosed,
+  shopId,
+  noticeId,
   applyStatus,
   category,
   shopName,
@@ -38,25 +48,57 @@ function NoticeInfo({
   noticeDescription,
   startsAt,
   workHour,
+  onApply,
 }: Props) {
   const formattedWorkTime = formatWorkTime({ type: 'notice', startsAt, workHour });
+  const { execute } = useAsync(postApply);
+  const [token, setToken] = useState<string>('');
+
+  const Props = {
+    authorization: { token },
+    data: {
+      shopId: shopId as string,
+      noticeId: noticeId as string,
+    },
+  };
+
+  const fetch = async () => {
+    if (shopId && noticeId) {
+      await execute(Props);
+    }
+  };
+
+  const handleApply = () => {
+    fetch();
+    onApply();
+  };
 
   const applyStatusSwitch = () => {
-    if (isClosed) return { text: '신청 불가' };
+    if (isClosed) return <InActiveButton />;
 
     switch (applyStatus) {
       case 'pending':
-        return { text: '취소하기' };
+        return <SecondaryButton text="취소하기" />;
       case 'accepted':
-        return { text: '신청 불가' };
+        return <InActiveButton />;
       case 'canceled':
-        return { text: '신청 불가' };
+        return <InActiveButton />;
       case 'rejected':
-        return { text: '신청 불가' };
+        return <InActiveButton />;
       default:
-        return { text: '신청하기' };
+        return <PrimaryButton text="신청하기" onClick={handleApply} />;
     }
   };
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const item = localStorage.getItem('token');
+
+      if (item) {
+        setToken(item);
+      }
+    }
+  }, []);
 
   return (
     <div className={styles.wrapper}>
@@ -89,9 +131,7 @@ function NoticeInfo({
           <NoticeCardDescription type="duration" description={formattedWorkTime} isClosed={isClosed} />
           <NoticeCardDescription type="address" description={address} isClosed={isClosed} />
           <p className={styles.description}>{shopDescription}</p>
-          <div className={styles.buttonContainer}>
-            <PrimaryButton text={applyStatusSwitch().text} />
-          </div>
+          <div className={styles.buttonContainer}>{applyStatusSwitch()}</div>
         </div>
       </div>
       <NoticeDescription description={noticeDescription} />
