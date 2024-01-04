@@ -44,8 +44,6 @@ function PostNotice() {
     }
   }, []);
 
-  // onChange={(e) => setFormData((prevData) => ({ ...prevData, name: e.target.value }))}
-
   return (
     <div className={styles.wrapper}>
       <GNBNav />
