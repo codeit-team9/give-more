@@ -64,7 +64,7 @@ function Signin() {
       <div className={styles.input}>
         <EmailInput />
         <PasswordInput />
-        <div className={styles.link}>
+        <div className={styles.button}>
           <PrimaryButton text="로그인하기" onClick={handleSignin} />
         </div>
       </div>

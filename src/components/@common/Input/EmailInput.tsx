@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Input from './Input';
 import useSignin from '@/hooks/useSignin';
+import styles from './Input.module.css';
 
 function EmailInput() {
   const [isError, setIsError] = useState(false);
@@ -23,7 +24,11 @@ function EmailInput() {
     }
   };
 
-  return <Input name="이메일" isError={isError} onChangeInput={onChangeInput} errorMsg={errorMsg} />;
+  return (
+    <div className={styles.wrapper}>
+      <Input name="이메일" isError={isError} onChangeInput={onChangeInput} errorMsg={errorMsg} />
+    </div>
+  );
 }
 
 export default EmailInput;
