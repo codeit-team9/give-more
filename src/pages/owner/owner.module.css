@@ -12,17 +12,18 @@
   gap: 2.4rem;
   flex-direction: column;
   padding: 4rem 1.2rem;
+  max-width: 40rem;
 
   @media (min-width: 768px) {
     gap: 3.2rem;
     padding: 6rem 3.2rem;
-    width: 74.4rem;
+    max-width: 80rem;
   }
 
   @media (min-width: 1200px) {
     gap: 3.2rem;
     padding: 6rem 16rem;
-    width: 140rem;
+    max-width: 140rem;
   }
 }
 
@@ -45,6 +46,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 }
 
 .innerWrapper {
@@ -82,39 +84,58 @@
   display: flex;
   gap: 2rem;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   padding: 0;
 
   @media (min-width: 768px) {
     display: grid;
     grid-template-areas:
-      'n p'
-      'd .'
-      't t';
+      'a b'
+      'c d'
+      'e .'
+      'f .'
+      'g g';
   }
 
   @media (min-width: 1200px) {
     display: grid;
+    width: 100%;
     grid-template-areas:
-      'n p d'
-      't t t';
+      'a b'
+      'c d'
+      'e .'
+      'f .'
+      'g g';
   }
 }
 
-.nameInput {
-  grid-area: n;
+.storeNameInput {
+  grid-area: a;
 }
 
-.phoneInput {
-  grid-area: p;
+.shopDropdown {
+  grid-area: b;
 }
 
-.dropdown {
+.addressDropdown {
+  grid-area: c;
+}
+
+.specificAdInput {
   grid-area: d;
 }
 
+.payInput {
+  grid-area: e;
+}
+
+.imgInput {
+  grid-area: f;
+}
+
 .textarea {
-  grid-area: t;
+  grid-area: g;
 }
 
 .inputWrapper p {
@@ -328,4 +349,13 @@
   @media (min-width: 1200px) {
     width: 34.6rem;
   }
+}
+
+.innerText {
+  position: relative;
+  top: -4.5rem;
+  right: -31.2rem;
+  width: 1.5rem;
+  font-size: 1.6rem;
+  color: var(---black);
 }
