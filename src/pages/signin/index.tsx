@@ -16,7 +16,7 @@ function Signin() {
   const { execute } = useAsync(postUser);
   const { email, password } = useSignin();
   const { isActive, setIsActive } = useToast();
-  const { setIsLogin, setToken } = useLoginInfo();
+  const { setIsLogin, setToken, setUserType } = useLoginInfo();
   const router = useRouter();
 
   const Props = {
@@ -31,6 +31,7 @@ function Signin() {
       setToken(response.data.item.token);
       setIsLogin(true);
       const userType = response.data.item.user.item.type;
+      setUserType(userType);
       if (userType === 'employee') {
         router.push('/profile');
       } else {
