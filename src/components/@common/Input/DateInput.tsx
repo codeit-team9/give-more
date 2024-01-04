@@ -17,7 +17,7 @@ function DateInput({ startsAt, setStartsAt }: Props) {
 
   return (
     <div className={classNames(styles.wrapper, styles.date)}>
-      <p className={styles.name}>시작 일시*</p>
+      <p className={styles.name}>시작 일시</p>
       <input
         className={styles.input}
         placeholder="선택"
