@@ -30,7 +30,12 @@ function Signin() {
     if (response.status === 200) {
       setToken(response.data.item.token);
       setIsLogin(true);
-      router.push('/profile');
+      const userType = response.data.item.user.item.type;
+      if (userType === 'employee') {
+        router.push('/profile');
+      } else {
+        router.push('/owner');
+      }
     } else {
       setIsActive(true);
       setTimeout(() => {
