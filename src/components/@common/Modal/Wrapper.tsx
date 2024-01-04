@@ -38,11 +38,15 @@ function Wrapper({ type, onClose, children }: Props) {
     }
   })();
 
-  return (
+  return type !== 'filter' ? (
     <div className={wrapperClassName} onClick={handleOutsideClick}>
       <div className={containerClassName} ref={ref}>
         {children}
       </div>
+    </div>
+  ) : (
+    <div className={containerClassName} ref={ref}>
+      {children}
     </div>
   );
 }

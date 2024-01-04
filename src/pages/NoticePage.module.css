@@ -1,0 +1,31 @@
+.noticeEntireContainer {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  flex-direction: column;
+  padding: 4rem 0 8rem;
+
+  @media (min-width: 768px) {
+    gap: 4rem;
+    padding: 6rem 0;
+  }
+
+  @media (min-width: 1200px) {
+    gap: 4rem;
+    padding: 6rem 0;
+  }
+}
+
+.filterContainer {
+  display: flex;
+  gap: 1rem;
+}
+
+.filterModalContainer {
+  position: relative;
+}
+
+.notFoundNotice {
+  font-size: 2.4rem;
+  color: var(--gray-30);
+}
