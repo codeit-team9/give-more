@@ -16,7 +16,7 @@ function Signin() {
   const { execute } = useAsync(postUser);
   const { email, password } = useSignin();
   const { isActive, setIsActive } = useToast();
-  const { setIsLogin, setToken, setUserType } = useLoginInfo();
+  const { setIsLogin, setUserType } = useLoginInfo();
   const router = useRouter();
 
   const Props = {
@@ -28,8 +28,12 @@ function Signin() {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const response: any = await execute(Props);
     if (response.status === 200) {
-      setToken(response.data.item.token);
+      localStorage.setItem('token', response.data.item.token);
       setIsLogin(true);
+      const { token }: { token: string | null } = response.data.item;
+      if (token) {
+        localStorage.setItem('token', token);
+      }
       const userType = response.data.item.user.item.type;
       setUserType(userType);
       if (userType === 'employee') {

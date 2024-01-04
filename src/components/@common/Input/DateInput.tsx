@@ -1,4 +1,5 @@
 import { ChangeEvent } from 'react';
+import classNames from 'classnames';
 import convertDate from '@/utils/convertDate';
 import styles from './DateInput.module.css';
 
@@ -15,8 +16,8 @@ function DateInput({ startsAt, setStartsAt }: Props) {
   };
 
   return (
-    <div>
-      <p className={styles.name}>시작 일시*</p>
+    <div className={classNames(styles.wrapper, styles.date)}>
+      <p className={styles.name}>시작 일시</p>
       <input
         className={styles.input}
         placeholder="선택"

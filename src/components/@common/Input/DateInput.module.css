@@ -1,3 +1,15 @@
+.wrapper {
+  width: 35rem;
+
+  @media (min-width: 768px) {
+    width: 33rem;
+  }
+
+  @media (min-width: 1200px) {
+    width: 30.8rem;
+  }
+}
+
 .name {
   font-size: 1.6rem;
   font-weight: 400;

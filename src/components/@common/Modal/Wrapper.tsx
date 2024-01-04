@@ -38,7 +38,7 @@ function Wrapper({ type, onClose, children }: Props) {
     }
   })();
 
-  return type !== 'filter' ? (
+  return type !== 'filter' && type !== 'notification' ? (
     <div className={wrapperClassName} onClick={handleOutsideClick}>
       <div className={containerClassName} ref={ref}>
         {children}

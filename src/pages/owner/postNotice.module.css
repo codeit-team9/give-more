@@ -1,0 +1,105 @@
+.wrapper {
+  display: flex;
+  gap: 2.4rem;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 4rem 1.2rem 8rem 1.2rem;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    width: 70rem;
+  }
+
+  @media (min-width: 1200px) {
+    width: 100rem;
+  }
+}
+
+.myProfile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-family: Spoqa Han Sans Neo;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.56px;
+}
+
+.info {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-direction: column;
+  padding: 0;
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-areas:
+      'a b'
+      'c .'
+      'd d';
+  }
+  @media (min-width: 1200px) {
+    display: grid;
+    grid-template-areas:
+      'a b c'
+      'd d d';
+  }
+}
+
+.innerText {
+  position: relative;
+  top: -4.3rem;
+  right: -31.5rem;
+  width: 1.5rem;
+  font-size: 1.6rem;
+  color: var(---black);
+
+  @media (min-width: 768px) {
+    right: -30rem;
+  }
+
+  @media (min-width: 1200px) {
+    right: -28rem;
+  }
+}
+
+.innerText2 {
+  position: relative;
+  top: -4.3rem;
+  right: -30.2rem;
+  width: 3rem;
+  font-size: 1.6rem;
+  color: var(---black);
+
+  @media (min-width: 768px) {
+    right: -29rem;
+  }
+
+  @media (min-width: 1200px) {
+    right: -26rem;
+  }
+}
+
+.payInput {
+  position: relative;
+  max-height: 9.2rem;
+  grid-area: a;
+}
+
+.dateInput {
+  grid-area: b;
+}
+
+.timeInput {
+  position: relative;
+  max-height: 9.2rem;
+  grid-area: c;
+}
+
+.textarea {
+  grid-area: d;
+}

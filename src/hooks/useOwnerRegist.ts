@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+type STORETYPE = '' | '한식' | '중식' | '일식' | '양식' | '분식';
+
 type ADDRESS =
   | ''
   | '서울시 종로구'
@@ -28,33 +30,48 @@ type ADDRESS =
   | '서울시 송파구'
   | '서울시 강동구';
 
-interface RegistState {
+interface OwnerRegistState {
   name: string;
   setName: (name: string) => void;
-  phone: string;
-  setPhone: (phone: string) => void;
+  type: STORETYPE;
+  setType: (type: STORETYPE) => void;
   address: ADDRESS;
   setAddress: (address: ADDRESS) => void;
+  specAddress: string;
+  setSpecAddress: (specAddress: string) => void;
+  url: string;
+  setURL: (url: string) => void;
   bio: string;
   setBio: (bio: string) => void;
+  pay: number;
+  setPay: (pay: number) => void;
 }
 
-const useRegist = (): RegistState => {
+const useOwnerRegist = (): OwnerRegistState => {
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [type, setType] = useState<STORE_TYPE>('');
   const [address, setAddress] = useState<ADDRESS>('');
+  const [specAddress, setSpecAddress] = useState('');
+  const [url, setURL] = useState('');
   const [bio, setBio] = useState('');
+  const [pay, setPay] = useState(0);
 
   return {
     name,
     setName,
-    phone,
-    setPhone,
+    type,
+    setType,
     address,
     setAddress,
+    specAddress,
+    setSpecAddress,
+    url,
+    setURL,
     bio,
     setBio,
+    pay,
+    setPay,
   };
 };
 
-export default useRegist;
+export default useOwnerRegist;

@@ -61,3 +61,8 @@
   justify-content: flex-end;
   grid-area: m;
 }
+
+.NotificationButtonContainer {
+  display: flex;
+  position: relative;
+}
