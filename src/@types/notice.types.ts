@@ -20,6 +20,9 @@ export interface Link {
 
 export interface Item {
   id: string;
+  currentUserApplication?: {
+    item: CurrentUserApplication;
+  };
   hourlyPay: number;
   startsAt: string;
   workhour: number;
@@ -44,4 +47,12 @@ export interface NoticeData {
   limit: number;
   links: Link[];
   offset: number;
+}
+
+export type Status = 'pending' | 'accepted' | 'rejected' | 'canceled';
+
+export interface CurrentUserApplication {
+  id: string;
+  status: Status;
+  createdAt: string;
 }
