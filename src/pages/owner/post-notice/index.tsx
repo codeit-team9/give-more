@@ -39,11 +39,12 @@ function PostNotice() {
     if (typeof window !== undefined) {
       const token = localStorage.getItem('token');
       if (token) {
-        console.log(token);
         setItem(token);
       }
     }
   }, []);
+
+  // onChange={(e) => setFormData((prevData) => ({ ...prevData, name: e.target.value }))}
 
   return (
     <div className={styles.wrapper}>

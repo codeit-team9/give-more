@@ -7,6 +7,8 @@ function HourlyPayInput() {
     e.target.value = e.target.value.replace(/\D/g, '').replace(/([0-9]{1,3})([0-9]{3})/g, '$1,$2');
   };
 
+  // onChange={(e) => setFormData((prevData) => ({ ...prevData, name: e.target.value }))}
+
   return (
     <div className={classNames(styles.positionWrapper, styles.hourlyPay)}>
       <Input name="시급*" maxLength={7} onChangeInput={onChangeInput} />
