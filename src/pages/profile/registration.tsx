@@ -30,7 +30,7 @@ function Registration() {
   const router = useRouter();
   const { name: userName, phone: userPhone, bio: userBio } = useUserInfo();
 
-  const Props = {
+  const Props = () => ({
     authorization: { token },
     url: { userId: extractUserIdFromJWT(token) },
     data: {
@@ -39,11 +39,11 @@ function Registration() {
       address: selectedLocation,
       bio,
     },
-  };
+  });
 
   const fetch = async () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const response: any = await execute(Props);
+    const response: any = await execute(Props());
     if (response.status === 200) {
       setIsRegist(true);
       setTimeout(() => {
@@ -93,7 +93,7 @@ function Registration() {
   };
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (token === '') {
       const item = localStorage.getItem('token');
       if (item) {
         setToken(item);

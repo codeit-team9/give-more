@@ -16,6 +16,7 @@ function Profile() {
   const [token, setToken] = useState<string>('');
   const { setId, setEmail, setType, setName, setPhone, setAddress, setShop, setBio } = useUserInfo();
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const Props = () => ({
     userId: extractUserIdFromJWT(token),
   });
@@ -43,7 +44,7 @@ function Profile() {
   }, [token]);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (token === '') {
       const item = localStorage.getItem('token');
       if (item) {
         setToken(item);

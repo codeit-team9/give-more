@@ -1,11 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import GNBNav from '@/components/@common/GNBNav/GNBNav';
 import styles from './owner.module.css';
 import PrimaryButton from '@/components/@common/Button/PrimaryButton';
 import Footer from '@/components/@common/Footer/Footer';
-import useLoginInfo from '@/hooks/useLoginInfo';
 import useOwnerInfo from '@/hooks/useOwnerInfo';
 import useAsync from '@/hooks/useAsync';
 import getUser from '@/api/getUser';
@@ -14,16 +13,16 @@ import extractUserIdFromJWT from '@/utils/extractUserIdFromJWT';
 function Owner() {
   const router = useRouter();
   const { execute } = useAsync(getUser);
-  const { token } = useLoginInfo();
+  const [token, setToken] = useState<string>('');
   const { setId, setEmail, setType, setName, setPhone, setAddress, setShop, setBio } = useOwnerInfo();
 
-  const Props = {
+  const Props = () => ({
     userId: extractUserIdFromJWT(token),
-  };
+  });
 
   const fetch = async () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const response: any = await execute(Props);
+    const response: any = await execute(Props());
     if (response.data.item.shop !== null) {
       setId(response.data.item.id);
       setEmail(response.data.item.email);
@@ -38,8 +37,14 @@ function Owner() {
   };
 
   useEffect(() => {
+    if (token === '') {
+      const item = localStorage.getItem('token');
+      if (item) {
+        setToken(item);
+      }
+    }
     fetch();
-  }, []);
+  }, [token]);
 
   return (
     <>
