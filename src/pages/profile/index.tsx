@@ -1,10 +1,46 @@
+import { useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import GNBNav from '@/components/@common/GNBNav/GNBNav';
 import styles from './profile.module.css';
 import PrimaryButton from '@/components/@common/Button/PrimaryButton';
 import Footer from '@/components/@common/Footer/Footer';
+import useLoginInfo from '@/hooks/useLoginInfo';
+import useUserInfo from '@/hooks/useUserInfo';
+import useAsync from '@/hooks/useAsync';
+import getUser from '@/api/getUser';
+import extractUserIdFromJWT from '@/utils/extractUserIdFromJWT';
 
 function Profile() {
+  const router = useRouter();
+  const { execute } = useAsync(getUser);
+  const { token } = useLoginInfo();
+  const { setId, setEmail, setType, setName, setPhone, setAddress, setShop, setBio } = useUserInfo();
+
+  const Props = {
+    userId: extractUserIdFromJWT(token),
+  };
+
+  const fetch = async () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const response: any = await execute(Props);
+    if (response.data.item.address !== undefined) {
+      setId(response.data.item.id);
+      setEmail(response.data.item.email);
+      setType(response.data.item.type);
+      setName(response.data.item.name);
+      setPhone(response.data.item.phone);
+      setAddress(response.data.item.address);
+      setShop(response.data.item.shop);
+      setBio(response.data.item.bio);
+      router.push('/profile/detail');
+    }
+  };
+
+  useEffect(() => {
+    fetch();
+  }, []);
+
   return (
     <>
       <GNBNav userType="employee" />
