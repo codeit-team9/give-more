@@ -1,5 +1,7 @@
+import ImageBox from '@/components/@common/ImageBox/ImageBox';
+
 function Owner() {
-  return <>사장님</>;
+  return <ImageBox />;
 }
 
 export default Owner;
