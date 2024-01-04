@@ -22,7 +22,7 @@ function Input({ placeholder = '입력', name, isError, type, maxLength, errorMs
         maxLength={maxLength}
         onChange={onChangeInput}
       />
-      <p className={styles.errorMsg}>{errorMsg}</p>
+      {errorMsg && <p className={styles.errorMsg}>{errorMsg}</p>}
     </div>
   );
 }

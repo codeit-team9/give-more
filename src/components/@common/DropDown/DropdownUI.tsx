@@ -39,7 +39,7 @@ function DropdownUI({
 
   return (
     <div className={classNames(styles.wrapper, isSort && styles.sortWrapper)} ref={dropdownRef}>
-      {!isSort && <h2 className={styles.title}>{title}</h2>}
+      {!isSort && <p className={styles.title}>{title}</p>}
       <div className={styles.inputContainer}>
         {isSort ? (
           <button className={styles.sortButton} type="button" value={selectedLocation} onClick={handleInputClick}>
