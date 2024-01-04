@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import GNBNav from '@/components/@common/GNBNav/GNBNav';
 import styles from './profile.module.css';
 import PrimaryButton from '@/components/@common/Button/PrimaryButton';
@@ -7,11 +8,12 @@ import SecondaryButton from '@/components/@common/Button/SecondaryButton';
 import PhoneIcon from '@/assets/images/phone_icon.svg';
 import LocationIcon from '@/assets/images/location_icon.svg';
 import useUserInfo from '@/hooks/useUserInfo';
-import ApplyHistory from '@/components/myprofile/ApplyHistory';
+import ApplyHistoryUi from '@/components/myprofile/ApplyHistoryUi';
 
 function Detail() {
   const router = useRouter();
   const { name, phone, address, bio, shop } = useUserInfo();
+  const [token, setToken] = useState<string>('');
 
   const handleEdit = () => {
     router.push('/profile/registration');
@@ -20,6 +22,15 @@ function Detail() {
   const handleList = () => {
     router.push('/');
   };
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const item = localStorage.getItem('token');
+      if (item) {
+        setToken(item);
+      }
+    }
+  }, []);
 
   return (
     <>
@@ -58,7 +69,7 @@ function Detail() {
               </div>
             </div>
           ) : (
-            <ApplyHistory />
+            <ApplyHistoryUi token={token} />
           )}
         </div>
       </div>
