@@ -30,6 +30,10 @@ function Signin() {
     if (response.status === 200) {
       setToken(response.data.item.token);
       setIsLogin(true);
+      const { token }: { token: string | null } = response.data.item;
+      if (token) {
+        localStorage.setItem('token', token);
+      }
       const userType = response.data.item.user.item.type;
       setUserType(userType);
       if (userType === 'employee') {
