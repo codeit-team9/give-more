@@ -23,15 +23,15 @@ function ApplyHistoryUi({ token }: Props) {
     updateCurrentPage(pageNumber);
   };
 
-  const Props = {
+  const Props = () => ({
     authorization: { token },
     url: {
       userId: extractUserIdFromJWT(token),
     },
-  };
+  });
 
   const fetch = async () => {
-    const response = (await execute(Props)) as RootObject;
+    const response = (await execute(Props())) as RootObject;
     const { data } = response;
     if (data) {
       setHistoryData(data);
@@ -40,8 +40,10 @@ function ApplyHistoryUi({ token }: Props) {
   };
 
   useEffect(() => {
-    fetch();
-  }, []);
+    if (token) {
+      fetch();
+    }
+  }, [token]);
 
   return (
     <div className={styles.wrapper}>
