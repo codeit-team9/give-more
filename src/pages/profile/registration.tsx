@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import GNBNav from '@/components/@common/GNBNav/GNBNav';
@@ -16,7 +16,6 @@ import useDropdown from '@/hooks/useDropdown';
 import useAsync from '@/hooks/useAsync';
 import extractUserIdFromJWT from '@/utils/extractUserIdFromJWT';
 import putUser from '@/api/putUser';
-import useLoginInfo from '@/hooks/useLoginInfo';
 import useUserInfo from '@/hooks/useUserInfo';
 
 function Registration() {
@@ -27,7 +26,7 @@ function Registration() {
   const { execute } = useAsync(putUser);
   const { selectedLocation, setSelectedLocation, toggleDropdown, isOpenDropdown, closeDropdown, setCategory } =
     useDropdown({});
-  const { token } = useLoginInfo();
+  const [token, setToken] = useState<string>('');
   const router = useRouter();
   const { name: userName, phone: userPhone, bio: userBio } = useUserInfo();
 
@@ -92,6 +91,15 @@ function Registration() {
     const InputValue = e.target.value;
     setBio(InputValue);
   };
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const item = localStorage.getItem('token');
+      if (item) {
+        setToken(item);
+      }
+    }
+  }, []);
 
   return (
     <>

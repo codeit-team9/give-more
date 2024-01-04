@@ -16,14 +16,16 @@ function NoticeList({ type, items, count }: Props) {
     <ul className={classNames(styles.wrapper, styles[type])}>
       {items && items?.length > 0 ? (
         items.slice(0, count).map((notice: Notice) => {
-          const { id, hourlyPay, startsAt, workhour, closed, shop } = notice.item;
-          const { name, address1, imageUrl, originalHourlyPay } = shop.item;
+          const { id: noticeId, hourlyPay, startsAt, workhour, closed, shop } = notice.item;
+          const { id: shopId, name, address1, imageUrl, originalHourlyPay } = shop.item;
 
           const formattedWorkTime = formatWorkTime({ type: 'notice', startsAt, workHour: workhour });
 
           return (
-            <li key={id}>
+            <li key={noticeId}>
               <NoticeCard
+                noticeId={noticeId}
+                shopId={shopId}
                 cardImageUrl={imageUrl}
                 restaurantName={name}
                 duration={formattedWorkTime}
