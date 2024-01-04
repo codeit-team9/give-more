@@ -11,7 +11,7 @@ interface Props {
   onChangeInput?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-function Input({ placeholder = '', name, isError, type, maxLength, errorMsg, onChangeInput }: Props) {
+function Input({ placeholder = '입력', name, isError, type, maxLength, errorMsg, onChangeInput }: Props) {
   return (
     <div className={styles.wrapper}>
       <p>{name}</p>
