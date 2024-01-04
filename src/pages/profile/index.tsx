@@ -43,13 +43,13 @@ function Profile() {
   }, [token]);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (token === '') {
       const item = localStorage.getItem('token');
       if (item) {
         setToken(item);
       }
     }
-  }, []);
+  }, [token]);
 
   return (
     <>
