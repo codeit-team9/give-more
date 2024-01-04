@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import classNames from 'classnames';
-import styles from './PostCard.module.css';
+import styles from './NoticeCard.module.css';
 import PostCardDescription from './NoticeCardDescription';
 import HourlyPayBadge from '@/components/notice/HourlyPayBadge/HourlyPayBadge';
 import separatorHourlyPay from '@/utils/separatorHourlyPay';
@@ -15,7 +15,7 @@ interface Props {
   isClosed: boolean;
 }
 
-function PostCard({
+function NoticeCard({
   cardImageUrl,
   restaurantName,
   duration,
@@ -52,4 +52,4 @@ function PostCard({
   );
 }
 
-export default PostCard;
+export default NoticeCard;

@@ -1,19 +1,19 @@
 import classNames from 'classnames';
-import PostCard from '../NoticeCard/NoticeCard';
+import NoticeCard from '../NoticeCard/NoticeCard';
 import styles from './NoticeList.module.css';
 import formatWorkTime from '@/utils/formatWorkTime';
 import { Notice } from '@/@types/notice.types';
 
 interface Props {
   type: 'customized' | 'entire';
-  items: Notice[];
+  items?: Notice[];
   count: number;
 }
 
 function NoticeList({ type, items, count }: Props) {
   return (
     <ul className={classNames(styles.wrapper, styles[type])}>
-      {items.slice(0, count).map((notice: Notice) => {
+      {items?.slice(0, count).map((notice: Notice) => {
         const { id, hourlyPay, startsAt, workhour, closed, shop } = notice.item;
         const { name, address1, imageUrl, originalHourlyPay } = shop.item;
 
@@ -22,7 +22,7 @@ function NoticeList({ type, items, count }: Props) {
         // eslint-disable-next-line consistent-return
         return (
           <li key={id}>
-            <PostCard
+            <NoticeCard
               cardImageUrl={imageUrl}
               restaurantName={name}
               duration={formattedWorkTime}

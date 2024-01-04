@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import styles from './PostCardDescription.module.css';
+import styles from './NoticeCardDescription.module.css';
 import { getIconByType } from '@/utils/getIconByType';
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
   isClosed: boolean;
 }
 
-function PostCardDescription({ type, description, isClosed }: Props) {
+function NoticeCardDescription({ type, description, isClosed }: Props) {
   const IconComponent = getIconByType({ isClosed, type });
 
   const closedNoticeClass = isClosed && styles.lastNotice;
@@ -21,4 +21,4 @@ function PostCardDescription({ type, description, isClosed }: Props) {
   );
 }
 
-export default PostCardDescription;
+export default NoticeCardDescription;

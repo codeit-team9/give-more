@@ -38,8 +38,8 @@ function DropdownUI({
   const isSort = isSortType(type);
 
   return (
-    <div className={classNames(styles.wrapper, isSort && styles.sortWrapper)} ref={dropdownRef}>
-      {!isSort && <p className={styles.title}>{title}</p>}
+    <div className={classNames(styles.wrapper, { [styles.sortWrapper]: isSort })} ref={dropdownRef}>
+      {!isSort && <h2 className={styles.title}>{title}</h2>}
       <div className={styles.inputContainer}>
         {isSort ? (
           <button className={styles.sortButton} type="button" value={selectedLocation} onClick={handleInputClick}>
@@ -49,14 +49,14 @@ function DropdownUI({
           <input className={styles.input} value={selectedLocation} onClick={handleInputClick} placeholder="선택" />
         )}
         <button
-          className={classNames(styles.arrowButton, isSort && styles.sortArrowButton)}
+          className={classNames(styles.arrowButton, { [styles.sortArrowButton]: isSort })}
           type="button"
           onClick={toggleDropdown}
         >
           {isSort ? (
-            <DropdownSmallIcon className={isOpenDropdown && styles.upArrow} />
+            <DropdownSmallIcon className={classNames({ [styles.upArrow]: isOpenDropdown })} />
           ) : (
-            <DropdownIcon className={isOpenDropdown && styles.upArrow} />
+            <DropdownIcon className={classNames({ [styles.upArrow]: isOpenDropdown })} />
           )}
         </button>
       </div>

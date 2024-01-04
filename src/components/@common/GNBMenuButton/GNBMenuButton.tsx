@@ -23,11 +23,11 @@ function GNBMenuButton({ type }: Props) {
       content = '로그아웃';
       break;
     case 'signIn':
-      link = '/';
+      link = '/signin';
       content = '로그인';
       break;
     case 'signUp':
-      link = '/';
+      link = '/signup';
       content = '회원가입';
       break;
     default:
