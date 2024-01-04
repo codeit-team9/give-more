@@ -1,4 +1,5 @@
 .wrapper {
+  position: relative;
   display: flex;
   width: 11rem;
   height: 6.4rem;
