@@ -7,6 +7,10 @@ interface SignupState {
   setPassword: (password: string) => void;
   isUser: 'employee' | 'employer';
   setIsUser: (isUser: 'employee' | 'employer') => void;
+  isInput: boolean;
+  setIsInput: (inInput: boolean) => void;
+  isPassword: boolean;
+  setIsPassword: (isPassword: boolean) => void;
 }
 
 const useSignup = create<SignupState>((set) => ({
@@ -16,6 +20,10 @@ const useSignup = create<SignupState>((set) => ({
   setPassword: (password) => set({ password }),
   isUser: 'employee',
   setIsUser: (isUser) => set({ isUser }),
+  isInput: false,
+  setIsInput: (isInput) => set({ isInput }),
+  isPassword: false,
+  setIsPassword: (isPassword) => set({ isPassword }),
 }));
 
 export default useSignup;

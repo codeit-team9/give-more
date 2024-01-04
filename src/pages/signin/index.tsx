@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import LogoButton from '@/components/@common/LogoButton/LogoButton';
 import styles from './signin.module.css';
 import EmailInput from '@/components/@common/Input/EmailInput';
@@ -16,6 +17,7 @@ function Signin() {
   const { email, password } = useSignin();
   const { isActive, setIsActive } = useToast();
   const { setIsLogin, setToken } = useLoginInfo();
+  const router = useRouter();
 
   const Props = {
     email,
@@ -28,6 +30,12 @@ function Signin() {
     if (response.status === 200) {
       setToken(response.data.item.token);
       setIsLogin(true);
+      const userType = response.data.item.user.item.type;
+      if (userType === 'employee') {
+        router.push('/profile');
+      } else {
+        router.push('/owner');
+      }
     } else {
       setIsActive(true);
       setTimeout(() => {
@@ -51,9 +59,9 @@ function Signin() {
       <div className={styles.input}>
         <EmailInput />
         <PasswordInput />
-        <Link href="/profile" className={styles.link} onClick={handleSignin}>
-          <PrimaryButton text="로그인하기" />
-        </Link>
+        <div className={styles.link}>
+          <PrimaryButton text="로그인하기" onClick={handleSignin} />
+        </div>
       </div>
       <div>
         회원이 아니신가요? &nbsp; &nbsp;
