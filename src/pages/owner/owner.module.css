@@ -1,0 +1,361 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 80%;
+  color: var(--black);
+}
+
+.middleWrapper {
+  display: flex;
+  gap: 2.4rem;
+  flex-direction: column;
+  padding: 4rem 1.2rem;
+  max-width: 40rem;
+
+  @media (min-width: 768px) {
+    gap: 3.2rem;
+    padding: 6rem 3.2rem;
+    max-width: 80rem;
+  }
+
+  @media (min-width: 1200px) {
+    gap: 3.2rem;
+    padding: 6rem 16rem;
+    max-width: 140rem;
+  }
+}
+
+.middleWrapper p {
+  padding-bottom: 0.6rem;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: normal;
+
+  @media (min-width: 768px) {
+    font-size: 2.8rem;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 2.8rem;
+  }
+}
+
+.myProfile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.innerWrapper {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  flex-direction: column;
+  padding: 6rem 2.4rem;
+
+  @media (min-width: 768px) {
+    gap: 2.4rem;
+  }
+
+  @media (min-width: 1200px) {
+    gap: 2.4rem;
+  }
+}
+
+.innerWrapper p {
+  padding: 0;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 2.2rem;
+
+  @media (min-width: 768px) {
+    font-size: 1.6rem;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 1.6rem;
+  }
+}
+
+.inputWrapper {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0;
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-areas:
+      'a b'
+      'c d'
+      'e .'
+      'f .'
+      'g g';
+  }
+
+  @media (min-width: 1200px) {
+    display: grid;
+    width: 100%;
+    grid-template-areas:
+      'a b'
+      'c d'
+      'e .'
+      'f .'
+      'g g';
+  }
+}
+
+.storeNameInput {
+  grid-area: a;
+}
+
+.shopDropdown {
+  grid-area: b;
+}
+
+.addressDropdown {
+  grid-area: c;
+}
+
+.specificAdInput {
+  grid-area: d;
+}
+
+.payInput {
+  grid-area: e;
+}
+
+.imgInput {
+  grid-area: f;
+}
+
+.textarea {
+  grid-area: g;
+}
+
+.inputWrapper p {
+  padding: 0;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.6rem;
+}
+
+.button {
+  width: 15rem;
+
+  @media (min-width: 768px) {
+    width: 34.6rem;
+  }
+
+  @media (min-width: 1200px) {
+    width: 34.6rem;
+  }
+}
+
+.buttonWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.registButton {
+  width: 31.2rem;
+}
+
+.toast {
+  position: fixed;
+  bottom: -8rem;
+  z-index: 2;
+}
+
+.detailWrapper {
+  display: flex;
+  gap: 1.6rem;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 4rem 1.2rem;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    padding: 6rem 3.2rem;
+  }
+
+  @media (min-width: 1200px) {
+    flex-direction: row;
+    padding: 6rem 23.8rem;
+  }
+}
+
+.shopWrapper {
+  display: flex;
+  gap: 1.6rem;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 4rem 1.2rem;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    gap: 3.2rem;
+    padding: 6rem 3.2rem;
+  }
+
+  @media (min-width: 1200px) {
+    gap: 3.2rem;
+    padding: 6rem 23.8rem;
+  }
+}
+
+.title {
+  padding-bottom: 0.6rem;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: normal;
+
+  @media (min-width: 768px) {
+    padding-right: 20rem;
+    font-size: 2.8rem;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 2.8rem;
+  }
+}
+
+.profileWrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 2rem;
+  width: 100%;
+  background: var(--red-10);
+
+  border-radius: 1.2rem;
+
+  @media (min-width: 1200px) {
+    width: 75%;
+  }
+}
+
+.profileContent {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  flex: 1 0 0;
+  flex-direction: column;
+  width: 20.3rem;
+}
+
+.bio {
+  padding: 0;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 2.2rem;
+}
+
+.profileInner {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: normal;
+  color: var(--primary);
+}
+
+.nameValue {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.048rem;
+}
+
+.profileDetail {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.profileDetail p {
+  padding: 0;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 2.2rem;
+  color: var(--gray-50);
+}
+
+.profileButton {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 10.8rem;
+}
+
+.shopList {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 6rem 2.4rem 10rem 2.4rem;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    gap: 2.4rem;
+    padding: 6rem 2.4rem 14rem 2.4rem;
+  }
+
+  @media (min-width: 1200px) {
+    gap: 2.4rem;
+    padding: 6rem 2.4rem 14rem 2.4rem;
+  }
+}
+
+.shopList p {
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 2.2rem;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 2.6rem;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 2.6rem;
+  }
+}
+
+.shopButton {
+  @media (min-width: 768px) {
+    width: 34.6rem;
+  }
+
+  @media (min-width: 1200px) {
+    width: 34.6rem;
+  }
+}
+
+.innerText {
+  position: relative;
+  top: -4.5rem;
+  right: -31.2rem;
+  width: 1.5rem;
+  font-size: 1.6rem;
+  color: var(---black);
+}
