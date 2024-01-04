@@ -58,6 +58,16 @@
 
 .positionWrapper {
   position: relative;
+
+  width: 35rem;
+
+  @media (min-width: 768px) {
+    width: 33rem;
+  }
+
+  @media (min-width: 1200px) {
+    width: 30.8rem;
+  }
 }
 
 .innerText {
@@ -66,4 +76,16 @@
   right: 2rem;
   font-size: 1.6rem;
   color: var(---black);
+}
+
+.hourlyPay {
+  grid-area: hourlyPay;
+}
+
+.workHour {
+  grid-area: workHour;
+}
+
+.date {
+  grid-area: date;
 }
