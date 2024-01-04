@@ -9,13 +9,14 @@ function UserTypeButton() {
   const [isSelected, setIsSelected] = useState(true);
   const { setIsUser } = useSignup();
 
-  const handleSelected = () => {
-    setIsSelected(!isSelected);
-    if (isSelected) {
-      setIsUser('employee');
-    } else {
-      setIsUser('employer');
-    }
+  const handleSelectedUser = () => {
+    setIsSelected(true);
+    setIsUser('employee');
+  };
+
+  const handleSelectedOwner = () => {
+    setIsSelected(false);
+    setIsUser('employer');
   };
 
   return (
@@ -25,7 +26,7 @@ function UserTypeButton() {
         <button
           type="button"
           className={classNames(styles.button, isSelected ? styles.selected : styles.notSelected)}
-          onClick={() => handleSelected()}
+          onClick={() => handleSelectedUser()}
         >
           {isSelected ? <CheckedIcon /> : <Blanked />}
           <span>알바님</span>
@@ -33,7 +34,7 @@ function UserTypeButton() {
         <button
           type="button"
           className={classNames(styles.button, isSelected ? styles.notSelected : styles.selected)}
-          onClick={() => handleSelected()}
+          onClick={() => handleSelectedOwner()}
         >
           {isSelected ? <Blanked /> : <CheckedIcon />}
           <span>사장님</span>

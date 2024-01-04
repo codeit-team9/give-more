@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import LogoButton from '@/components/@common/LogoButton/LogoButton';
 import styles from './signup.module.css';
@@ -16,11 +17,12 @@ import useLoginInfo from '@/hooks/useLoginInfo';
 function SignUp() {
   const { execute } = useAsync(postNewUser);
   const { isLogin } = useLoginInfo();
-  const { email, password, isUser } = useSignup();
+  const { email, password, isUser, isInput, isPassword } = useSignup();
   const { isActive, setIsActive } = useToast();
   const [message, setMessage] = useState<
     'email' | 'password' | 'accepted' | 'modified' | 'applied' | 'canceled' | 'error' | 'signed'
   >('email');
+  const router = useRouter();
 
   const Props = {
     email,
@@ -42,7 +44,7 @@ function SignUp() {
       setIsActive(true);
       setTimeout(() => {
         setIsActive(false);
-        window.location.href = '/signin';
+        router.push('/signin');
       }, 3000);
     } else if (response.status === 409) {
       setMessage('email');
@@ -60,11 +62,19 @@ function SignUp() {
   };
 
   const handleSignin = () => {
-    fetch();
+    if (isInput && isPassword) {
+      fetch();
+    } else {
+      setMessage('modified');
+      setIsActive(true);
+      setTimeout(() => {
+        setIsActive(false);
+      }, 3000);
+    }
   };
 
   if (isLogin) {
-    window.location.href = '/';
+    router.push('/'); // 공고 리스트 페이지로 리다이렉트
   }
 
   return (

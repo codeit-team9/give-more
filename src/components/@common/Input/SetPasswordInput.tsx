@@ -9,7 +9,7 @@ function SetPasswordInput() {
   const [password, setPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
   const [confirmErrorMsg, setConfirmErrorMsg] = useState('');
-  const { setPassword: setGlobalPassword } = useSignup();
+  const { setPassword: setGlobalPassword, setIsPassword } = useSignup();
 
   const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
@@ -18,9 +18,11 @@ function SetPasswordInput() {
     if (InputValue === '') {
       setErrorMsg('');
       setIsError(false);
+      setIsPassword(false);
     } else if (!PwRegex.test(InputValue)) {
       setErrorMsg('8자 이상 입력해 주세요.');
       setIsError(true);
+      setIsPassword(false);
     } else {
       setErrorMsg('');
       setIsError(false);
@@ -33,12 +35,15 @@ function SetPasswordInput() {
     if (InputValue === '') {
       setConfirmErrorMsg('');
       setIsConfirmError(false);
+      setIsPassword(false);
     } else if (password !== InputValue) {
       setConfirmErrorMsg('비밀번호가 일치하지 않습니다.');
       setIsConfirmError(true);
+      setIsPassword(false);
     } else {
       setConfirmErrorMsg('');
       setIsConfirmError(false);
+      setIsPassword(true);
     }
   };
 

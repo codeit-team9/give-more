@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import LogoButton from '@/components/@common/LogoButton/LogoButton';
 import styles from './signin.module.css';
 import EmailInput from '@/components/@common/Input/EmailInput';
@@ -13,10 +14,10 @@ import useLoginInfo from '@/hooks/useLoginInfo';
 
 function Signin() {
   const { execute } = useAsync(postUser);
-  const { isLogin } = useLoginInfo();
   const { email, password } = useSignin();
   const { isActive, setIsActive } = useToast();
   const { setIsLogin, setToken } = useLoginInfo();
+  const router = useRouter();
 
   const Props = {
     email,
@@ -27,8 +28,14 @@ function Signin() {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const response: any = await execute(Props);
     if (response.status === 200) {
-      setIsLogin(true);
       setToken(response.data.item.token);
+      setIsLogin(true);
+      const userType = response.data.item.user.item.type;
+      if (userType === 'employee') {
+        router.push('/profile');
+      } else {
+        router.push('/owner');
+      }
     } else {
       setIsActive(true);
       setTimeout(() => {
@@ -41,10 +48,6 @@ function Signin() {
     fetch();
   };
 
-  if (isLogin) {
-    window.location.href = '/';
-  }
-
   return (
     <div className={styles.wrapper}>
       {isActive && (
@@ -56,7 +59,9 @@ function Signin() {
       <div className={styles.input}>
         <EmailInput />
         <PasswordInput />
-        <PrimaryButton text="로그인하기" onClick={handleSignin} />
+        <div className={styles.link}>
+          <PrimaryButton text="로그인하기" onClick={handleSignin} />
+        </div>
       </div>
       <div>
         회원이 아니신가요? &nbsp; &nbsp;
