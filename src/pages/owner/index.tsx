@@ -16,13 +16,13 @@ function Owner() {
   const [token, setToken] = useState<string>('');
   const { setId, setEmail, setType, setName, setPhone, setAddress, setShop, setBio } = useOwnerInfo();
 
-  const Props = {
+  const Props = () => ({
     userId: extractUserIdFromJWT(token),
-  };
+  });
 
   const fetch = async () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const response: any = await execute(Props);
+    const response: any = await execute(Props());
     if (response.data.item.shop !== null) {
       setId(response.data.item.id);
       setEmail(response.data.item.email);
