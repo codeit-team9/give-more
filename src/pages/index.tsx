@@ -114,10 +114,8 @@ function NoticePage() {
             </div>
           </div>
         </NoticeEntire>
-        {totalPages > 0 && notice && notice.items.length > 0 ? (
+        {totalPages > 0 && notice && notice.items.length > 0 && (
           <Pagination totalPages={totalPages} currentPage={currentPage} onPageChange={handlePageChange} />
-        ) : (
-          <h1 className={styles.notFoundNotice}>공고 목록이 존재하지 않아요.</h1>
         )}
       </div>
       <Footer />
