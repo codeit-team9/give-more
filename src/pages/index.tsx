@@ -90,13 +90,13 @@ function NoticePage() {
   }, [token]);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (token === '') {
       const item = localStorage.getItem('token');
       if (item) {
         setToken(item);
       }
     }
-  }, []);
+  }, [token]);
 
   const handlePageChange = (pageNumber: number) => {
     updateCurrentPage(pageNumber);

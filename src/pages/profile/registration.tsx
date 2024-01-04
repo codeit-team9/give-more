@@ -95,11 +95,12 @@ function Registration() {
   useEffect(() => {
     if (token === '') {
       const item = localStorage.getItem('token');
+
       if (item) {
         setToken(item);
       }
     }
-  }, []);
+  }, [token]);
 
   return (
     <>

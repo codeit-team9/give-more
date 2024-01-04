@@ -50,7 +50,7 @@ function Profile() {
         setToken(item);
       }
     }
-  }, []);
+  }, [token]);
 
   return (
     <>
