@@ -4,22 +4,25 @@
   flex-direction: column;
   margin-top: 10.2rem;
   width: 100%;
+  height: 80%;
   color: var(--black);
 }
 
 .middleWrapper {
   display: flex;
+  gap: 2.4rem;
   flex-direction: column;
   padding: 4rem 1.2rem;
-  width: 100%;
 
   @media (min-width: 768px) {
+    gap: 3.2rem;
     padding: 6rem 3.2rem;
     width: 74.4rem;
   }
 
   @media (min-width: 1200px) {
-    padding: 6rem 23.8rem;
+    gap: 3.2rem;
+    padding: 6rem 16rem;
     width: 140rem;
   }
 }
@@ -37,6 +40,12 @@
   @media (min-width: 1200px) {
     font-size: 2.8rem;
   }
+}
+
+.myProfile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .innerWrapper {
@@ -70,6 +79,52 @@
   }
 }
 
+.inputWrapper {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-direction: column;
+  padding: 0;
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-areas:
+      'n p'
+      'd .'
+      't t';
+  }
+
+  @media (min-width: 1200px) {
+    display: grid;
+    grid-template-areas:
+      'n p d'
+      't t t';
+  }
+}
+
+.nameInput {
+  grid-area: n;
+}
+
+.phoneInput {
+  grid-area: p;
+}
+
+.dropdown {
+  grid-area: d;
+}
+
+.textarea {
+  grid-area: t;
+}
+
+.inputWrapper p {
+  padding: 0;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.6rem;
+}
+
 .button {
   width: 15rem;
 
@@ -80,4 +135,21 @@
   @media (min-width: 1200px) {
     width: 34.6rem;
   }
+}
+
+.buttonWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.registButton {
+  width: 31.2rem;
+}
+
+.toast {
+  position: fixed;
+  bottom: -8rem;
+  z-index: 2;
 }
