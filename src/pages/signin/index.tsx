@@ -13,7 +13,6 @@ import useLoginInfo from '@/hooks/useLoginInfo';
 
 function Signin() {
   const { execute } = useAsync(postUser);
-  const { isLogin } = useLoginInfo();
   const { email, password } = useSignin();
   const { isActive, setIsActive } = useToast();
   const { setIsLogin, setToken } = useLoginInfo();
@@ -27,8 +26,8 @@ function Signin() {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const response: any = await execute(Props);
     if (response.status === 200) {
-      setIsLogin(true);
       setToken(response.data.item.token);
+      setIsLogin(true);
     } else {
       setIsActive(true);
       setTimeout(() => {
@@ -41,10 +40,6 @@ function Signin() {
     fetch();
   };
 
-  if (isLogin) {
-    window.location.href = '/';
-  }
-
   return (
     <div className={styles.wrapper}>
       {isActive && (
@@ -56,7 +51,9 @@ function Signin() {
       <div className={styles.input}>
         <EmailInput />
         <PasswordInput />
-        <PrimaryButton text="로그인하기" onClick={handleSignin} />
+        <Link href="/profile" className={styles.link} onClick={handleSignin}>
+          <PrimaryButton text="로그인하기" />
+        </Link>
       </div>
       <div>
         회원이 아니신가요? &nbsp; &nbsp;
