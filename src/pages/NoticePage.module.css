@@ -24,8 +24,3 @@
 .filterModalContainer {
   position: relative;
 }
-
-.notFoundNotice {
-  font-size: 2.4rem;
-  color: var(--gray-30);
-}
