@@ -19,12 +19,12 @@ function PostNotice() {
   const [canRegist, setCanRegist] = useState(false);
   const [startsAt, setStartsAt] = useState('');
   const { execute } = useAsync(postShopsNotice);
-  const [item, setItem] = useState<string>('');
+  const [token, setToken] = useState<string>('');
   const { hourlyPay, setHourlyPay, workhour, setWorkhour, description, setDescription } = usePostNotice();
   const { shop } = useOwnerInfo();
 
   const Props = {
-    authorization: { token: item },
+    authorization: { token },
     url: {
       shopId: shop.item.id,
     },
@@ -76,13 +76,13 @@ function PostNotice() {
   };
 
   useEffect(() => {
-    if (typeof window !== undefined) {
-      const token = localStorage.getItem('token');
-      if (token) {
-        setItem(token);
+    if (token === '') {
+      const item = localStorage.getItem('token');
+      if (item) {
+        setToken(token);
       }
     }
-  }, []);
+  }, [token]);
 
   return (
     <>

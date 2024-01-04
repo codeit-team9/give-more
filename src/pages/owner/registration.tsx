@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import GNBNav from '@/components/@common/GNBNav/GNBNav';
@@ -14,7 +14,6 @@ import useOwnerRegist from '@/hooks/useOwnerRegist';
 import useDropdown from '@/hooks/useDropdown';
 import useAsync from '@/hooks/useAsync';
 import postShop from '@/api/postShop';
-import useLoginInfo from '@/hooks/useLoginInfo';
 import StoreImageInput from '@/components/@common/Input/StoreImageInput';
 
 function Registration() {
@@ -32,7 +31,7 @@ function Registration() {
     closeDropdown: closeDropdown2,
     setCategory: setCategory2,
   } = useDropdown({});
-  const { token } = useLoginInfo();
+  const [token, setToken] = useState<string>('');
   const router = useRouter();
   const [uploadedImage, setUploadedImage] = useState('');
 
@@ -109,6 +108,15 @@ function Registration() {
     const InputValue = e.target.value;
     setBio(InputValue);
   };
+
+  useEffect(() => {
+    if (token === '') {
+      const item = localStorage.getItem('token');
+      if (item) {
+        setToken(token);
+      }
+    }
+  }, [token]);
 
   return (
     <>
