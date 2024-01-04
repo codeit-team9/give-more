@@ -15,14 +15,17 @@ function DateInput({ startsAt, setStartsAt }: Props) {
   };
 
   return (
-    <input
-      className={styles.input}
-      placeholder="선택"
-      type="datetime-local"
-      value={startsAt.slice(0, 16)}
-      min={minDateTime}
-      onChange={handleChange}
-    />
+    <div>
+      <p className={styles.name}>시작 일시*</p>
+      <input
+        className={styles.input}
+        placeholder="선택"
+        type="datetime-local"
+        value={startsAt.slice(0, 16)}
+        min={minDateTime}
+        onChange={handleChange}
+      />
+    </div>
   );
 }
 

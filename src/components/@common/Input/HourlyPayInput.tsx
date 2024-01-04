@@ -7,10 +7,10 @@ function HourlyPayInput() {
   };
 
   return (
-    <>
+    <div className={styles.positionWrapper}>
       <Input name="시급*" maxLength={7} onChangeInput={onChangeInput} />
       <p className={styles.innerText}>원</p>
-    </>
+    </div>
   );
 }
 
