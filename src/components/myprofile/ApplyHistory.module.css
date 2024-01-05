@@ -8,11 +8,11 @@
 
 .content {
   display: flex;
-  flex-direction: row;
   align-items: center;
+  flex-direction: row;
+  border-bottom: 1px solid var(--gray-20);
 
   font-size: 1.6rem;
-  border-bottom: 1px solid var(--gray-20);
 }
 
 .header {
@@ -27,8 +27,8 @@
 }
 
 .shop {
-  width: 22.8rem;
   padding: 2rem 1.2rem;
+  width: 22.8rem;
 }
 
 .header .date {
@@ -36,15 +36,15 @@
 }
 
 .date {
-  width: 30rem;
+
+  display: -webkit-box;
 
   padding: 2rem 1.2rem;
 
   overflow: hidden;
-  text-overflow: ellipsis;
+  width: 30rem;
   word-break: break-all;
-
-  display: -webkit-box;
+  text-overflow: ellipsis;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 
@@ -61,8 +61,8 @@
 }
 
 .hourlyPay {
-  width: 20rem;
   padding: 2rem 1.2rem;
+  width: 20rem;
 
   @media (max-width: 768px) {
     display: none;
@@ -79,11 +79,11 @@
 
 .status {
   display: flex;
-  flex-direction: row;
   gap: 12px;
+  flex-direction: row;
+  padding: 2rem 1.2rem;
 
   width: 23.6rem;
-  padding: 2rem 1.2rem;
 
   @media (max-width: 768px) {
     border-left: 1px solid var(--gray-20);
@@ -92,4 +92,8 @@
   @media (max-width: 1200px) {
     border-left: 1px solid var(--gray-20);
   }
+}
+
+.pagenation {
+  padding: 0.8rem 1.2rem;
 }

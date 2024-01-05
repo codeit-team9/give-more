@@ -5,6 +5,8 @@ import getUserApplyList from '@/api/getUserApplyList';
 import useAsync from '@/hooks/useAsync';
 import extractUserIdFromJWT from '@/utils/extractUserIdFromJWT';
 import { ApplyHistoryData, RootObject } from './ApplyHistoryType';
+import Pagination from '../@common/pagination/Pagination';
+import usePagination from '@/hooks/usePagination';
 
 interface Props {
   token: string;
@@ -14,24 +16,34 @@ function ApplyHistoryUi({ token }: Props) {
   const [historyData, setHistoryData] = useState<ApplyHistoryData | undefined>();
   const { execute } = useAsync(getUserApplyList);
 
-  const Props = {
+  const { currentPage, totalItems, updateCurrentPage, updateTotalItems } = usePagination({});
+  const totalPages = Math.ceil(totalItems / 6);
+
+  const handlePageChange = (pageNumber: number) => {
+    updateCurrentPage(pageNumber);
+  };
+
+  const Props = () => ({
     authorization: { token },
     url: {
       userId: extractUserIdFromJWT(token),
     },
-  };
+  });
 
   const fetch = async () => {
-    const response = (await execute(Props)) as RootObject;
+    const response = (await execute(Props())) as RootObject;
     const { data } = response;
     if (data) {
       setHistoryData(data);
+      updateTotalItems(response?.data?.count);
     }
   };
 
   useEffect(() => {
-    fetch();
-  }, []);
+    if (token) {
+      fetch();
+    }
+  }, [token]);
 
   return (
     <div className={styles.wrapper}>
@@ -53,7 +65,9 @@ function ApplyHistoryUi({ token }: Props) {
           />
         ))}
       </div>
-      <div className={styles.pagenation}>pagenation button</div>
+      <div className={styles.pagenation}>
+        <Pagination totalPages={totalPages} currentPage={currentPage} onPageChange={handlePageChange} />
+      </div>
     </div>
   );
 }

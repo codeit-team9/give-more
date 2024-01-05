@@ -3,9 +3,10 @@ import styles from '@/components/@common/GNBMenuButton/GNBMenuButton.module.css'
 
 interface Props {
   type: 'employer' | 'employee' | 'signOut' | 'signIn' | 'signUp';
+  onClick?: () => void;
 }
 
-function GNBMenuButton({ type }: Props) {
+function GNBMenuButton({ type, onClick }: Props) {
   let link = '/';
   let content = '';
 
@@ -36,7 +37,9 @@ function GNBMenuButton({ type }: Props) {
 
   return (
     <div className={styles.wrapper}>
-      <Link href={link}>{content}</Link>
+      <Link href={link} onClick={onClick}>
+        {content}
+      </Link>
     </div>
   );
 }
