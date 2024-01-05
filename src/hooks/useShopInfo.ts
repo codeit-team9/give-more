@@ -13,8 +13,8 @@ interface ShopInfoState {
   setSpecAddress: (address: string) => void;
   imageUrl: string;
   setImageUrl: (imageUrl: string) => void;
-  originalHourlyPay: string;
-  setOriginalHourlyPay: (ioriginalHourlyPay: string) => void;
+  originalHourlyPay: number;
+  setOriginalHourlyPay: (originalHourlyPay: number) => void;
   description: string;
   setDescription: (description: string) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -36,8 +36,8 @@ const useShopInfo = create<ShopInfoState>((set) => ({
   setSpecAddress: (specAddress: string) => set({ specAddress }),
   imageUrl: '',
   setImageUrl: (imageUrl: string) => set({ imageUrl }),
-  originalHourlyPay: '',
-  setOriginalHourlyPay: (originalHourlyPay: string) => set({ originalHourlyPay }),
+  originalHourlyPay: 0,
+  setOriginalHourlyPay: (originalHourlyPay: number) => set({ originalHourlyPay }),
   description: '',
   setDescription: (description: string) => set({ description }),
   user: null,

@@ -10,12 +10,14 @@ import useOwnerInfo from '@/hooks/useOwnerInfo';
 import styles from './detail.module.css';
 import useShopInfo from '@/hooks/useShopInfo';
 import LocationIcon from '@/assets/images/location_icon.svg';
+import OwnerNotices from '@/components/owner/OwnerNotices/OwnerNotices';
 
 function Detail() {
   const { execute } = useAsync(getShop);
   const { shop } = useOwnerInfo();
   const [hasNotice, setHasNotice] = useState(false);
   const {
+    id,
     setId,
     name,
     setName,
@@ -25,6 +27,7 @@ function Detail() {
     setSpecAddress,
     imageUrl,
     setImageUrl,
+    originalHourlyPay,
     setOriginalHourlyPay,
     description,
     setDescription,
@@ -52,7 +55,6 @@ function Detail() {
     } else {
       setHasNotice(false);
     }
-    console.log(response);
   };
 
   useEffect(() => {
@@ -81,7 +83,7 @@ function Detail() {
                 <Link href="/owner/registration" className={styles.button}>
                   <SecondaryButton text="편집하기" />
                 </Link>
-                <Link href="/owner/registration" className={styles.button}>
+                <Link href="/owner/postnotice" className={styles.button}>
                   <PrimaryButton text="공고 등록하기" />
                 </Link>
               </div>
@@ -90,7 +92,13 @@ function Detail() {
         </div>
         {hasNotice ? (
           <div className={styles.secondWrapper}>
-            <p className={styles.title}>내가 등록한 공고</p>
+            <OwnerNotices
+              shopId={id}
+              imageUrl={imageUrl}
+              name={name}
+              address1={address}
+              originalHourlyPay={originalHourlyPay}
+            />
           </div>
         ) : (
           <div className={styles.secondWrapper}>

@@ -5,7 +5,6 @@ import useAsync from '@/hooks/useAsync';
 import postImage from '@/api/postImage';
 import putImage from '@/api/putImage';
 import getImage from '@/api/getImage';
-import useLoginInfo from '@/hooks/useLoginInfo';
 
 interface Props {
   name: string;
@@ -19,7 +18,7 @@ function StoreImageInput({ name, imgURL, onImageChange, store }: Props) {
   const { execute } = useAsync(postImage);
   const { execute: putExecute } = useAsync(putImage);
   const { execute: getExecute } = useAsync(getImage);
-  const { token } = useLoginInfo();
+  const [token, setToken] = useState<string>('');
   const [img, setImg] = useState('');
   const [url, setUrl] = useState('');
 
@@ -68,9 +67,18 @@ function StoreImageInput({ name, imgURL, onImageChange, store }: Props) {
   };
 
   useEffect(() => {
-    fetch();
-    setImg(imgURL);
-  }, []);
+    if (token === '') {
+      const item = localStorage.getItem('token');
+      if (item) {
+        setToken(item);
+      }
+    }
+
+    if (token) {
+      fetch();
+      setImg(imgURL);
+    }
+  }, [token]);
 
   return (
     <div className={styles.wrapper}>
