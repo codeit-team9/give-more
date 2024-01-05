@@ -42,8 +42,9 @@ function Owner() {
       if (item) {
         setToken(item);
       }
+    } else {
+      fetch();
     }
-    fetch();
   }, [token]);
 
   return (

@@ -33,7 +33,7 @@ function StoreImageInput({ name, imgURL, onImageChange, store }: Props) {
   const fetch = async () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const response: any = await execute(Props);
-    setUrl(response.data.item.url);
+    if (response.status === 200) setUrl(response.data.item.url);
   };
 
   const getFetch = async (newUrl: string) => {
