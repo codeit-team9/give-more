@@ -93,3 +93,7 @@
     border-left: 1px solid var(--gray-20);
   }
 }
+
+.pagenation {
+  padding: 0.8rem 1.2rem;
+}

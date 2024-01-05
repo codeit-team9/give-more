@@ -4,6 +4,7 @@ import styles from './ApplyHistory.module.css';
 import separatorHourlyPay from '@/utils/separatorHourlyPay';
 import convertedWorkhour from '@/utils/convertWorkhour';
 import { Status } from './ApplyHistoryType';
+import StateBadge from '../@common/StateBadge/StateBadge';
 
 interface Props {
   shop?: string;
@@ -27,7 +28,7 @@ function ApplyHistory({ shop, date, workhour, hourlyPay, status }: Props) {
         {formattedDate} ~ {formattedTime} ({workhour}시간)
       </div>
       <div className={styles.hourlyPay}>{hourlyPayString}원</div>
-      <div className={styles.status}>{status !== undefined ? String(status) : ''}</div>
+      <div className={styles.status}>{status !== undefined ? <StateBadge type={status} /> : ''}</div>
     </div>
   );
 }
