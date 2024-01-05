@@ -167,17 +167,17 @@
 .secondWrapper {
   display: flex;
   gap: 0.8rem;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
-  padding: 4rem 1.2rem 8rem 1.2rem;
+  padding: 4rem 0 8rem;
   width: 100%;
 
   @media (min-width: 768px) {
-    padding: 6rem 3.2rem;
+    padding: 6rem 0;
   }
 
   @media (min-width: 1200px) {
-    padding: 6rem 23.8rem;
+    padding: 6rem 0;
   }
 }
 

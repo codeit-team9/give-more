@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styles from './postNotice.module.css';
@@ -19,26 +19,27 @@ function PostNotice() {
   const [canRegist, setCanRegist] = useState(false);
   const [startsAt, setStartsAt] = useState('');
   const { execute } = useAsync(postShopsNotice);
-  const [token, setToken] = useState<string>('');
   const { hourlyPay, setHourlyPay, workhour, setWorkhour, description, setDescription } = usePostNotice();
   const { shop } = useOwnerInfo();
 
-  const Props = {
-    authorization: { token },
-    url: {
-      shopId: shop.item.id,
-    },
-    data: {
-      hourlyPay,
-      startsAt: convertDate(new Date()),
-      workhour,
-      description,
-    },
+  const Props = (item: string) => {
+    return {
+      authorization: { token: item },
+      url: {
+        shopId: shop.item.id,
+      },
+      data: {
+        hourlyPay,
+        startsAt: startsAt || convertDate(new Date()),
+        workhour,
+        description,
+      },
+    };
   };
 
-  const fetch = async () => {
+  const fetch = async (item: string) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const response: any = await execute(Props);
+    const response: any = await execute(Props(item));
     if (response.status === 200) router.push('/owner/detail');
   };
 
@@ -72,17 +73,13 @@ function PostNotice() {
   };
 
   const handleNotice = () => {
-    if (canRegist) fetch();
-  };
-
-  useEffect(() => {
-    if (token === '') {
+    if (canRegist) {
       const item = localStorage.getItem('token');
       if (item) {
-        setToken(token);
+        fetch(item);
       }
     }
-  }, [token]);
+  };
 
   return (
     <>

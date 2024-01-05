@@ -12,7 +12,7 @@ function GNBMenuButton({ type, onClick }: Props) {
 
   switch (type) {
     case 'employer':
-      link = '/';
+      link = '/owner';
       content = '내 가게';
       break;
     case 'employee':

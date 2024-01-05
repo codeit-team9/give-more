@@ -12,7 +12,8 @@
   }
 }
 
-.entire {
+.entire,
+.owner {
   display: grid;
   grid-template-columns: 17.1rem 17.1rem;
   column-gap: 0.8rem;

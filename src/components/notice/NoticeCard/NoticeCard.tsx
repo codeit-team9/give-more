@@ -8,12 +8,12 @@ import styles from './NoticeCard.module.css';
 
 interface Props {
   noticeId: string;
-  shopId: string;
-  cardImageUrl: string;
-  restaurantName: string;
+  shopId?: string;
+  cardImageUrl?: string;
+  restaurantName?: string;
   duration: string;
-  address: string;
-  defaultHourlyPay: number;
+  address?: string;
+  defaultHourlyPay?: number;
   currentHourlyPay: number;
   isClosed: boolean;
 }
@@ -38,8 +38,8 @@ function NoticeCard({
           <Image
             fill
             className={classNames(styles.cardImage, closedNoticeClass)}
-            src={cardImageUrl}
-            alt={restaurantName}
+            src={cardImageUrl || ''}
+            alt={restaurantName || ''}
           />
         </Link>
         {isClosed && <p className={styles.lastNotice}>지난 공고</p>}
@@ -51,12 +51,16 @@ function NoticeCard({
           </Link>
           <Link href={`/notice?shopId=${shopId}&noticeId=${noticeId}`}>
             <PostCardDescription type="duration" description={duration} isClosed={isClosed} />
-            <PostCardDescription type="address" description={address} isClosed={isClosed} />
+            <PostCardDescription type="address" description={address || ''} isClosed={isClosed} />
           </Link>
         </div>
         <div className={styles.hourlyPayContainer}>
           <h2 className={classNames(styles.hourlyPay, closedNoticeClass)}>{separatorHourlyPay(currentHourlyPay)}원</h2>
-          <HourlyPayBadge defaultHourlyPay={defaultHourlyPay} currentHourlyPay={currentHourlyPay} isClosed={isClosed} />
+          <HourlyPayBadge
+            defaultHourlyPay={defaultHourlyPay || undefined}
+            currentHourlyPay={currentHourlyPay}
+            isClosed={isClosed}
+          />
         </div>
       </div>
     </div>
