@@ -8,7 +8,7 @@ function Home() {
   const Props = {
     url: {
       shopId: '383deacd-9d00-411e-8e42-85b0928e1058',
-      noticeId: '203a5ba9-9c5d-4f4e-aa6d-f32e87eda95c',
+      noticeId: '07434d6a-3ab8-4e58-8ae4-fad338a3bb9d',
     },
   };
 
