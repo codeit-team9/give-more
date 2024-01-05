@@ -39,7 +39,8 @@ function Registration() {
     setUploadedImage(file);
   };
 
-  const Props = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const Props = () => ({
     authorization: { token },
     data: {
       name,
@@ -50,11 +51,11 @@ function Registration() {
       imageUrl: uploadedImage,
       originalHourlyPay: pay,
     },
-  };
+  });
 
   const fetch = async () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const response: any = await execute(Props);
+    const response: any = await execute(Props());
     if (response.status === 200) {
       setIsRegist(true);
       setTimeout(() => {
@@ -113,7 +114,7 @@ function Registration() {
     if (token === '') {
       const item = localStorage.getItem('token');
       if (item) {
-        setToken(token);
+        setToken(item);
       }
     }
   }, [token]);

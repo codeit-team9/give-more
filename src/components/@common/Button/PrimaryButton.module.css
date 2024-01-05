@@ -3,9 +3,12 @@
   gap: 0.8rem;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
+
   padding: 1.4rem 2rem;
 
   width: 100%;
+
   background: var(--primary);
 
   font-size: 1.4rem;
@@ -13,16 +16,6 @@
   line-height: normal;
   color: var(--white);
 
+  text-decoration: none;
   border-radius: 0.6rem;
-
-  width: 35.1rem;
-  margin: 0 auto;
-
-  @media (min-width: 768px) {
-    width: 31.2rem;
-  }
-
-  @media (min-width: 1200px) {
-    width: 31.2rem;
-  }
 }
